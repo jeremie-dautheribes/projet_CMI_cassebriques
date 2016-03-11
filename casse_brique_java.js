@@ -1,5 +1,5 @@
-                            Exemple d'un début de programmation Casse-Briques en Java (Processing) 
-                                               Quelques idées importantes !
+                            //Exemple d'un début de programmation Casse-Briques en Java (Processing) 
+                                              // Quelques idées importantes !
 
 
 int x = int(random(25,775)); // Position initiale de la balle sur l'axe x 
