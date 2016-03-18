@@ -22,6 +22,11 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+                
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            		rectangle.move(10,0);
+        	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            		rectangle.move(-10,0);
         }
 
         window.clear();
