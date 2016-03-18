@@ -8,12 +8,12 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1200, 900), "Fenetre");
     sf::CircleShape circle(7.f);
     sf::RectangleShape rectangle;
-    rectangle.setSize(sf::Vector2f(70,10));
+    rectangle.setSize(sf::Vector2f(110,10));
     rectangle.setFillColor(sf::Color::Cyan);
     rectangle.setPosition(600,850);
     circle.setPosition(x,y);
     circle.setFillColor(sf::Color::Magenta);
-    circle.setOutlineThickness(5);
+    circle.setOutlineThickness(1);
 
     while (window.isOpen())
     {
