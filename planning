@@ -1,0 +1,19 @@
+1er temps: Rentre dans le jeu : 
+-fenetre
+-menu : jouer , option , sortie , (niveau de difficultés)
+
+2e temps: Jeu : 
+-Générer les briques 
+-générer la raquette
+-générer la balle (collée à la raquette)
+
+3eme temps: Générer un mouvement:
+-associer un mouvement à la balle
+-associer un mouvement à la raquette (suivant l'axe Ox)
+
+4eme temps: Destruction des briques: 
+-gérer la collision de la balle sur les briques
+-fonction qui enlève la Brique
+
+5eme temps: Rebond de la balle sur les murs:
+-mettre un système qui définit les murs 
