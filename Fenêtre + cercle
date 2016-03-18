@@ -1,10 +1,19 @@
+
 #include <SFML/Graphics.hpp>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+  float x = 600;
+  float y = 800;
+    sf::RenderWindow window(sf::VideoMode(1200, 900), "Fenetre");
+    sf::CircleShape circle(7.f);
+    sf::RectangleShape rectangle;
+    rectangle.setSize(sf::Vector2f(70,10));
+    rectangle.setFillColor(sf::Color::Cyan);
+    rectangle.setPosition(600,850);
+    circle.setPosition(x,y);
+    circle.setFillColor(sf::Color::Magenta);
+    circle.setOutlineThickness(5);
 
     while (window.isOpen())
     {
@@ -16,7 +25,8 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        window.draw(circle);
+	window.draw(rectangle);
         window.display();
     }
 
