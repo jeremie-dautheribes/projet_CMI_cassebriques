@@ -1,7 +1,31 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
+void menu(sf::RenderWindow &window)
+{
+    bool finished = false;
+    while (! finished) {
+    //std::cout<<"\n Appuyez sur N'importe quelle touche pour entrer en Jeu \n";
+        sf::Event Event;
+        while (window.pollEvent(Event))
+        {
+            if (Event.type == sf::Event::Closed)
+                return;
+            if (Event.type == sf::Event::KeyPressed)
+                finished = true;
+        }
+        window.clear();
+        window.display();
+    }
+    return;
+}
 
 int main()
 {
+    sf::RenderWindow winwin(sf::VideoMode(800, 600), "MENU");
+    menu(winwin);
+    winwin.close();
+
   float x = 600;
   float y = 800;
     sf::RenderWindow window(sf::VideoMode(1200, 900), "CasseBriques"); //initialise la fenetre
@@ -28,7 +52,7 @@ int main()
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) // Si le bouton droite est appuyé du clavier , la raquette va à droite
         {
-            rectangle.move(8,0);
+            rectangle.move(10,0);
             window.setVerticalSyncEnabled(true);
             window.setFramerateLimit(30);
         }
@@ -49,7 +73,7 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
         {
-            rectangle.move(-8,0);
+            rectangle.move(-10,0);
             window.setVerticalSyncEnabled(true);
             window.setFramerateLimit(60);
         }
@@ -78,4 +102,3 @@ int main()
 
     return 0;
 }
-
