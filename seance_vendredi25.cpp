@@ -1,24 +1,40 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include<iostream>
 #include<string>
 #include <cstdlib>
 
-void menu(sf::RenderWindow &window)
+void menu(sf::RenderWindow &winwin)
 {
+    sf::Texture texture;
+    sf::Sprite sprite;
+    texture.loadFromFile("C:\\Users\\PC\\Desktop\\Camille\\L1\\code\\Casse_Briques\\obj\\start.png"); //Charge l'image "commencer"
+    sprite.setTexture(texture);
+    sprite.setPosition(sf::Vector2f(255,238));
+    sprite.move(sf::Vector2f(5,10));
+    winwin.clear(sf::Color(138,104,158)); //affecte une couleur violine en fond de notre menu
+    winwin.draw(sprite);
+    winwin.display();
+
     bool finished = false;
     while (! finished) {
-        
-        sf::Event Event;
-        while (window.pollEvent(Event))
+
+    sf::Event Event;
+
+        while (winwin.pollEvent(Event))
         {
+
             if (Event.type == sf::Event::Closed)
+            {
                 return;
-            if (Event.type == sf::Event::KeyPressed)
-                finished = true;
+            }
+            if (Event.type == sf::Event::MouseButtonPressed) {
+                if (Event.mouseButton.button == sf::Mouse::Left)
+                    finished = true;
+            }
         }
-        window.clear();
-        window.display();
+
     }
     return;
 }
