@@ -27,18 +27,22 @@ int main()
     winwin.close();
 
     sf::Texture stop; // Texture de l'image
-    stop.loadFromFile("C:\\Users\\Thomas\\Documents\\ProjetCMI\\Casse-Briques\\Pause.jpg");
+    stop.loadFromFile("Pause.jpg");
     sf::Sprite sprite;
     sprite.setTexture(stop); // On associe la texture à un sprite
 
   float x = 400;
   float y = 300;
+  float rectX = 400;
+  float rectY = 550;
   float vitX = 0.;
   float vitY = 5.;
   bool pause = false;
+    int brique [5][16];
     sf::RenderWindow window(sf::VideoMode(800, 600), "CasseBriques"); //initialise la fenetre
     sf::CircleShape circle(5.f); //Créer notre balle : un cercle de dimension 8
     sf::RectangleShape rectangle; //créer notre raquette : un rectangle
+    sf::RectangleShape briques;
     rectangle.setSize(sf::Vector2f(115,15)); //Taille de notre raquette
     rectangle.setFillColor(sf::Color::Cyan); //Couleur de notre raquette
     rectangle.setPosition(400,550); // position initiale de notre raquette
@@ -46,6 +50,14 @@ int main()
     circle.setFillColor(sf::Color::Transparent); //Couleur de notre balle
     circle.setOutlineThickness(5);
     sprite.setPosition(200.f, 100.f); // Position du Sprite Pause
+
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 16; j++){
+            brique[i][j] = 1;
+        }
+    }
+
+
 
 
 
@@ -60,7 +72,7 @@ int main()
             if (pause){ // Si la variable pause est true
                 circle.move(0,0); // On immobilise la balle
                 while (window.isOpen() && pause){
-                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){ //Si une fois la pause lancée,nous voulons redemarrer, bouton gauche souris
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Si une fois la pause lancée,nous voulons redemarrer, bouton gauche souris
                         pause = false;
                     }
                     window.clear();
@@ -76,6 +88,19 @@ int main()
                 x += vitX;
                 y += vitY;
 
+                for (int o = 1; o < 4; o++ ) {
+                    for (int l = 1; l < 14; l++) {
+                        if (x>=l*55 && x<=(l*55)+45){
+                            if (brique[o][l] == 1){
+                                if(y+10>=80*o && y<=(80*o)+40){
+                                    brique[o][l] = 0;
+                                    vitY = -vitY;
+                                }
+
+                            }
+                        }
+                    }
+                }
 
 
                 if (event.type == sf::Event::MouseMoved){
@@ -114,7 +139,7 @@ int main()
                 }
 
                 if (y>=535) {
-                    if(x>=MouseX && x<=MouseX+115){
+                    if((x>=MouseX && x<=MouseX+115) || (x>=rectX && x<=rectX+115)){
                         if (vitX == 0){
                             vitX = -5;
                             vitY = -vitY;
@@ -128,12 +153,54 @@ int main()
 
 
 
-           if (sf::Mouse::isButtonPressed(sf::Mouse::Right)){ //Condition pour lancer l'algorithme de la pause
+           if (sf::Mouse::isButtonPressed(sf::Mouse::Right)|| sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Condition pour lancer l'algorithme de la pause
                 pause = true;
             }
 
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) // Si le bouton droite est appuyé du clavier , la raquette va à droite
+            {
+                rectangle.move(10,0);
+                rectX += 10;
+                if(rectX+115>800){
+                    rectangle.setPosition(685,550);
+                }
+            window.setVerticalSyncEnabled(true);
+            window.setFramerateLimit(60);
+            }
+
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) //Si la touche "d" du clavier est appuyée, la raquette va à droite.
+        {
+            rectangle.move(10,0);
+            rectX +=10;
+            if(rectX+115>800){
+                rectangle.setPosition(685,550);
+            }
+            window.setVerticalSyncEnabled(true);
+            window.setFramerateLimit(60);
+        }
 
 
+         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
+        {
+            rectangle.move(-10,0);
+            rectX -= 10;
+            if(rectX<0){
+                rectangle.setPosition(0,550);
+            }
+            window.setVerticalSyncEnabled(true);
+            window.setFramerateLimit(60);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) //Si la touche "q" du clavier est enfoncé , la raquette va à gauche
+        {
+            rectangle.move(-10,0);
+            rectX -= 10;
+            if(rectX<0){
+                rectangle.setPosition(0,550);
+            }
+            window.setVerticalSyncEnabled(true);
+            window.setFramerateLimit(60);
+        }
 
         while (window.pollEvent(event))
         {
@@ -143,56 +210,23 @@ int main()
                 window.setVerticalSyncEnabled(true);
                 window.setFramerateLimit(60);
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) // Si le bouton droite est appuyé du clavier , la raquette va à droite
-        {
-            rectangle.move(10,0);
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);
         }
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) //Si la touche "d" du clavier est appuyée, la raquette va à droite.
-        {
-            rectangle.move(8,0);
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(30);
+        window.clear(sf::Color::Magenta);
+        for (int o = 1; o < 4; o++ ) { // Création de lignes de briques (numérotées de 2 à 4)
+            for (int l = 1; l < 14; l++) {  // Création de colonnes de briques (numérotées de 1 à 8)
+                if (brique[o][l] == 1) {
+                    briques.setSize(sf::Vector2f(45,30));
+                    briques.setFillColor(sf::Color::White);
+                    briques.setPosition(l*55,o*80);
+                    window.draw(briques);
+                }
+            }
         }
-
-       /* if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
-        {
-            rectangle.move(8,0);
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(30);
-        } */
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
-        {
-            rectangle.move(-10,0);
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) //Si la touche "q" du clavier est enfoncé , la raquette va à gauche
-        {
-            rectangle.move(-8,0);
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);
-        }
-
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) // Si on fait un "click gauche" , la raquette va à gauche
-        {
-            /*rectangle.move(-8,0);
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);*/
-
-        }
-
-
-        }
-
-        window.clear();
         window.draw(circle);
         window.draw(rectangle);
         window.display();
+
         }
 
 
