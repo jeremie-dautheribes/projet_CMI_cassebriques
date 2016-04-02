@@ -1,15 +1,22 @@
 void menu(sf::RenderWindow &winwin)
 {
     sf::Texture texture;
+    sf::Texture regle;
     sf::Sprite sprite;
-    texture.loadFromFile("C:\\Users\\PC\\Desktop\\Camille\\L1\\code\\Casse_Briques\\obj\\start.png"); //Charge l'image "commencer"
+    sf::Sprite sprite2;
+    texture.loadFromFile("C:\\Users\\PC\\Desktop\\Camille\\L1\\code\\coucou\\Image\\start.jpg"); //Charge l'image "commencer"
+    regle.loadFromFile("C:\\Users\\PC\\Desktop\\Camille\\L1\\code\\coucou\\Image\\regles.jpg");
     sprite.setTexture(texture);
-    sprite.setPosition(sf::Vector2f(400,250));
+    sprite2.setTexture(regle);
+    sprite.setPosition(sf::Vector2f(400,100));
+    sprite2.setPosition(sf::Vector2f(400,300));
     sprite.move(sf::Vector2f(10,10));
+    sprite2.move(sf::Vector2f(10,10));
 
     sf::Event Event;
-    winwin.clear(sf::Color(138,104,158)); //affecte une couleur violine en fond de notre menu
+    winwin.clear(sf::Color(103,154,198)); //affecte une couleur bleuté en fond de notre menu
     winwin.draw(sprite);
+    winwin.draw(sprite2);
     winwin.display();
 
     bool finished = false;
