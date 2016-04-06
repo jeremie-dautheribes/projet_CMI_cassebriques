@@ -241,7 +241,7 @@ int main()
                     }
                     
                 }            
-        
+            }
         
         // pour éviter que la raquette sorte de l'écran
         if(rectX+115>800){
