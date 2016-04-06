@@ -223,7 +223,7 @@ int main()
             }
             
             // rebond sur la raquette
-            if (y>=535) {
+            if (y==540) {
                 if((x>=MouseX && x<=MouseX+115) || (x>=rectX && x<=rectX+115)){
                     if (vitX == 0){
                         vitX = -5;
@@ -233,7 +233,13 @@ int main()
                         vitY = -vitY;
                     }
                 }
-            }
+                else {
+                    if( y>=540 && ((x>=MouseX && x<=MouseX + 115) || (x>=rectX && x<=rectX + 115))) {
+                        vitY = -vitY;
+                        vitX = -vitX;
+                    }
+                    
+                }            
         
         
         // pour éviter que la raquette sorte de l'écran
