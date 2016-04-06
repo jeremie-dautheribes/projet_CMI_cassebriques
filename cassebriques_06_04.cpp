@@ -37,6 +37,7 @@ int main()
   float rectY = 550;
   float vitX = 0.;
   float vitY = 5.;
+  int lives = 3;
   bool pause = false;
     int brique [5][16];
     sf::RenderWindow window(sf::VideoMode(800, 600), "CasseBriques"); //initialise la fenetre
@@ -50,6 +51,11 @@ int main()
     circle.setFillColor(sf::Color::Transparent); //Couleur de notre balle
     circle.setOutlineThickness(5);
     sprite.setPosition(200.f, 100.f); // Position du Sprite Pause
+
+
+    window.setVerticalSyncEnabled(true);
+    window.setFramerateLimit(60);
+
 
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 16; j++){
@@ -119,14 +125,14 @@ int main()
 
                 }
 
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+                    window.close();
+                }
+
                 if (y>=590){
-                        if (vitX == 0){
-                            vitX = -5;
-                            vitY = -vitY;
-                        }
-                        else {
-                            vitY = -vitY;
-                        }
+                    lives -= 1;
+                    y = 540;
+                    x = rectX-10;
                 }
                 if (x>=800){
                     vitX = -vitX;
@@ -152,6 +158,12 @@ int main()
             }
 
 
+             if(rectX+115>800){
+                    rectangle.setPosition(685,550);
+                }
+                else if(rectX<0){
+                    rectangle.setPosition(0,550);
+                }
 
            if (sf::Mouse::isButtonPressed(sf::Mouse::Right)|| sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Condition pour lancer l'algorithme de la pause
                 pause = true;
@@ -161,22 +173,12 @@ int main()
             {
                 rectangle.move(10,0);
                 rectX += 10;
-                if(rectX+115>800){
-                    rectangle.setPosition(685,550);
-                }
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);
             }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) //Si la touche "d" du clavier est appuyée, la raquette va à droite.
         {
             rectangle.move(10,0);
             rectX +=10;
-            if(rectX+115>800){
-                rectangle.setPosition(685,550);
-            }
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);
         }
 
 
@@ -184,22 +186,12 @@ int main()
         {
             rectangle.move(-10,0);
             rectX -= 10;
-            if(rectX<0){
-                rectangle.setPosition(0,550);
-            }
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) //Si la touche "q" du clavier est enfoncé , la raquette va à gauche
         {
             rectangle.move(-10,0);
             rectX -= 10;
-            if(rectX<0){
-                rectangle.setPosition(0,550);
-            }
-            window.setVerticalSyncEnabled(true);
-            window.setFramerateLimit(60);
         }
 
         while (window.pollEvent(event))
@@ -208,11 +200,10 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
                 window.setVerticalSyncEnabled(true);
-                window.setFramerateLimit(60);
 
         }
 
-        window.clear(sf::Color::Magenta);
+        window.clear(sf::Color::Blue);
         for (int o = 1; o < 4; o++ ) { // Création de lignes de briques (numérotées de 2 à 4)
             for (int l = 1; l < 14; l++) {  // Création de colonnes de briques (numérotées de 1 à 8)
                 if (brique[o][l] == 1) {
