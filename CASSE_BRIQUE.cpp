@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 template <typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaitre la variable live en jeu à coté de "Lives = "
 
