@@ -4,14 +4,23 @@
 #include <string>
 #include "Perdu.h"
 
+void losen (int lives, sf::RenderWindow &lose){
+if (lives == 0)
+    {
+    sf::RenderWindow fenetre(sf::VideoMode(1000, 800), "PERDU");
+    menuperdu(fenetre);
+    fenetre.close();
+    }
+}
+
 void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu" pour lancer une fenètre avec des boutons recommencer & quitter lorsque l'on a perdu
 
     sf::Texture restart; // On crée une première texture pour notre bouton "recommencer"
     sf::Texture leave; // on crée une seconde texture pour notre bouton "quitter"
     sf::Sprite rejouer; // On crée notre premier sprite pour notre bouton "recommencer" que l'on associera à notre texture "restart"
     sf::Sprite verlassen; // On crée notre second sprite pour notre bouton "quitter" que l'on associera à notre texture "leave"
-    restart.loadFromFile("recommencer.jpg"); //Charge l'image "recommencer"
-    leave.loadFromFile("quitter.jpg"); //charge l'image "quitter"
+    restart.loadFromFile("images\\recommencer.jpg"); //Charge l'image "recommencer"
+    leave.loadFromFile("images\\quitter.jpg"); //charge l'image "quitter"
     rejouer.setTexture(restart); // On associe notre première texture nommée "restart" à notre premier sprite "rejouer"
     verlassen.setTexture(leave);// On associe notre seconde texture nommée "leave" à notre second sprite "verlassen"
     rejouer.setPosition(sf::Vector2f(240,100)); // On associe à notre bouton "rejouer" une position à 240 pixel sur notre axe X & à 100 sur notre axe Y
@@ -60,9 +69,9 @@ void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu"
 
 /*int main (){
 
-    sf::RenderWindow fenetre(sf::VideoMode(1000, 800), "PERDU");
-    menuperdu(fenetre);
-    fenetre.close();
-
+    sf::RenderWindow wiwi(sf::VideoMode(1000, 800), "PERDU");
+    int lives =0;
+    losen(lives, wiwi);
+    wiwi.close();
 }
 */
