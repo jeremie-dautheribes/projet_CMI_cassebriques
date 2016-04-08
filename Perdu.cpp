@@ -10,6 +10,7 @@ if (lives == 0)
     sf::RenderWindow fenetre(sf::VideoMode(1000, 800), "PERDU");
     menuperdu(fenetre);
     fenetre.close();
+    lives = 3;
     }
 }
 
