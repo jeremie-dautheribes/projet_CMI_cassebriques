@@ -239,7 +239,7 @@ int main()
             
             
             
-            raquetteSouris(event,rectangle);
+            raquetteSouris(event,rectangle,rectX);
             
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
                 window.close();
