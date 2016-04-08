@@ -28,6 +28,50 @@ void menu(sf::RenderWindow &window)
     return;
 }
 
+void raquetteSouris (sf::Event &event, sf::RectangleShape &rectangle) { // mouvement de la raquette avec la souris
+    
+    
+    float MouseX= event.mouseMove.x;
+    
+    if (event.type == sf::Event::MouseMoved){
+        if(MouseX+115>800){
+            rectangle.setPosition(685,550);
+        }
+        else {
+            if (MouseX<0){
+                rectangle.setPosition(0,550);
+            }
+            else {
+                rectangle.setPosition(MouseX,550);
+            }
+        }
+        
+    }
+    return;
+}
+
+
+
+
+void menuPause (sf::Texture &stop, sf::Sprite &sprite, sf::RenderWindow &window, bool &pause, sf::CircleShape &circle) {
+    
+    stop.loadFromFile("Pause.jpg");
+    sprite.setTexture(stop);
+    
+    circle.move(0,0); // On immobilise la balle
+    while (window.isOpen() && pause){
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Si une fois la pause lancée,nous voulons redemarrer, bouton gauche souris
+            pause = false;
+        }
+        window.clear();
+        window.draw(sprite); // On affiche le sprite
+        window.display();
+    }
+    
+    
+    return;
+}
+
 
 int main()
 {
