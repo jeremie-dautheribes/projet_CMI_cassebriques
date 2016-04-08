@@ -47,10 +47,54 @@ void raquetteSouris (sf::Event &event, sf::RectangleShape &rectangle) { // mouve
         }
         
     }
+    
+    if(rectX+115>800){
+            rectangle.setPosition(685,550);
+            }
+            else {
+                if(rectX<0){
+                    rectangle.setPosition(0,550);
+                }
+            }
     return;
 }
 
+ void rebond(float &xBalle, float &yBalle, float &MouseX, float &vitX, float &vitY, float &rectX){
+                if (xBalle>=800){
+                    vitX = -vitX;
+                }
+                if (yBalle<=0){
+                    vitY = -vitY;
+                }
+                if (xBalle<=0){
+                    vitX = -vitX;
+                }
 
+                if (yBalle==540) {
+                    if((xBalle>=MouseX && xBalle<=MouseX+115) || (xBalle>=rectX && xBalle<=rectX+115)){
+                        if (vitX == 0){
+                            vitX = -3;
+                            vitY = -vitY;
+                        }
+                        else {
+                            vitY = -vitY;
+
+                        }
+                        }
+                }
+                else {
+
+                    if (yBalle>=540){
+                        if((xBalle>=MouseX && xBalle<=MouseX+115) ||(xBalle>=rectX && xBalle<=rectX+115)){
+                            vitY = -vitY;
+                            vitX = -vitX;
+                    }
+                }
+                }
+    }
+    
+    
+    
 
 
 void menuPause (sf::Texture &stop, sf::Sprite &sprite, sf::RenderWindow &window, bool &pause, sf::CircleShape &circle) {
@@ -201,78 +245,33 @@ int main()
                 window.close();
             }
             
+         rebond(x, y, MouseX ,vitX ,vitY ,rectX);
             
         }
         
         
-        if (x>=800){
-            vitX = -vitX;
-        }
-        if (y<=0){
-            vitY = -vitY;
-        }
-        if (x<=0){
-            vitX = -vitX;
-        }
-        
-        if (y==540) {
-            if((x>=MouseX && x<=MouseX+115) || (x>=rectX && x<=rectX+115)){
-                if (vitX == 0){
-                    vitX = -3;
-                    vitY = -vitY;
-                }
-                else {
-                    vitY = -vitY;
-                    
-                }
-            }
-        }
-        else {
-            
-            if (y>=540){
-                if((x>=MouseX && x<=MouseX+115) ||(x>=rectX && x<=rectX+115)){
-                    vitY = -vitY;
-                    vitX = -vitX;
-                }
-            }
-        }
         
         
-        if(rectX+115>800){
-            rectangle.setPosition(685,550);
-        }
-        else if(rectX<0){
-            rectangle.setPosition(0,550);
-        }
+        
         
         if (sf::Mouse::isButtonPressed(sf::Mouse::Right)|| sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Condition pour lancer l'algorithme de la pause
             pause = true;
         }
-        
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) // Si le bouton droite est appuyé du clavier , la raquette va à droite
+
+
+
+        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::D))) // Si le bouton droite est appuyé du clavier , la raquette va à droite
         {
             rectangle.move(10,0);
             rectX += 10;
         }
         
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) //Si la touche "d" du clavier est appuyée, la raquette va à droite.
-        {
-            rectangle.move(10,0);
-            rectX +=10;
-        }
-        
-        
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
         {
             rectangle.move(-10,0);
             rectX -= 10;
         }
-        
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) //Si la touche "q" du clavier est enfoncé , la raquette va à gauche
-        {
-            rectangle.move(-10,0);
-            rectX -= 10;
-        }
+
         
         while (window.pollEvent(event))
         {
