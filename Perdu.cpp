@@ -15,6 +15,19 @@ if (lives == 0)
 
 void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu" pour lancer une fenètre avec des boutons recommencer & quitter lorsque l'on a perdu
 
+    sf::Font fontp; // on initialise un fond
+    sf::Text textp; // on initialise un texte
+    fontp.loadFromFile("Fonts\\introheadr-base.otf"); //On charge le type d'écrire (ici écriture basique)
+    textp.setFont(fontp); //On affecte au texte , un fond
+    textp.setString("Vous avez perdu , voulez vous recommencer?"); // Le texte vaut "vous avez gagné" (ce qui sera affiché plus tard)
+    textp.setCharacterSize(30); // Change la taille de la police à 30
+    textp.setStyle(sf::Text::Regular); // Pas d'effet d'écriture : on a une police en "regular"
+
+    //Pour centrer le texte:
+    sf::FloatRect textRectperdu = textp.getLocalBounds();
+    textp.setOrigin(textRectperdu.width/2,textRectperdu.height/2);
+    textp.setPosition(sf::Vector2f(500,100));
+
     sf::Texture restart; // On crée une première texture pour notre bouton "recommencer"
     sf::Texture leave; // on crée une seconde texture pour notre bouton "quitter"
     sf::Sprite rejouer; // On crée notre premier sprite pour notre bouton "recommencer" que l'on associera à notre texture "restart"
@@ -23,13 +36,14 @@ void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu"
     leave.loadFromFile("images\\quitter.jpg"); //charge l'image "quitter"
     rejouer.setTexture(restart); // On associe notre première texture nommée "restart" à notre premier sprite "rejouer"
     verlassen.setTexture(leave);// On associe notre seconde texture nommée "leave" à notre second sprite "verlassen"
-    rejouer.setPosition(sf::Vector2f(240,100)); // On associe à notre bouton "rejouer" une position à 240 pixel sur notre axe X & à 100 sur notre axe Y
-    verlassen.setPosition(sf::Vector2f(300,300)); // On associe à notre bouton "quitter" une position à 300 pixel sur notre axe X & à 300 sur notre axe Y
+    rejouer.setPosition(sf::Vector2f(240,200)); // On associe à notre bouton "rejouer" une position à 240 pixel sur notre axe X & à 100 sur notre axe Y
+    verlassen.setPosition(sf::Vector2f(300,400)); // On associe à notre bouton "quitter" une position à 300 pixel sur notre axe X & à 300 sur notre axe Y
     rejouer.move(sf::Vector2f(10,10));
     verlassen.move(sf::Vector2f(10,10));
 
     sf::Event evenement; // On crée un evenement
     fenetre.clear(sf::Color(103,154,198)); //affecte une couleur bleuté en fond de notre menu
+    fenetre.draw(textp);
     fenetre.draw(rejouer); // On dessine notre sprite "rejouer" pour afficher notre bouton "recommencer"
     fenetre.draw(verlassen); // On dessine notre sprite "verlassen" pour afficher notre bouton "quitter"
     fenetre.display();
@@ -73,5 +87,5 @@ void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu"
     int lives =0;
     losen(lives, wiwi);
     wiwi.close();
-}
-*/
+}*/
+
