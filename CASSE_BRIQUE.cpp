@@ -169,7 +169,7 @@ int main()
 
             float MouseX = event.mouseMove.x;
             if (pause){ // Si la variable pause est true
-                mmenuPause(stop, sprite, window, pause, circle);
+                menuPause(stop, sprite, window, pause, circle);
             
             }
             
