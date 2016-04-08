@@ -6,12 +6,13 @@
 
 void menugagner (sf::RenderWindow &gagner){ // On crée une fonction "menuGagner" pour lancer une fenètre avec des boutons niveau suivant & quitter lorsque l'on a gagné
 
+
     sf::Texture level; // On crée une première texture pour notre bouton "Niveau_Suivant"
     sf::Texture fara; // on crée une seconde texture pour notre bouton "quitter"
     sf::Sprite niveausuiv; // On crée notre premier sprite pour notre bouton "niveau Suivant" que l'on associera à notre texture "restart"
     sf::Sprite lasciare; // On crée notre second sprite pour notre bouton "quitter" que l'on associera à notre texture "leave"
-    level.loadFromFile("niveau_suivant.jpg"); //Charge l'image "Niveau Suivant"
-    fara.loadFromFile("quitter.jpg"); //charge l'image "quitter"
+    level.loadFromFile("images\\niveau_suivant.jpg"); //Charge l'image "Niveau Suivant"
+    fara.loadFromFile("images\\quitter.jpg"); //charge l'image "quitter"
     niveausuiv.setTexture(level); // On associe notre première texture nommée "level" à notre premier sprite "niveausuiv"
     lasciare.setTexture(fara);// On associe notre seconde texture nommée "fara" à notre second sprite "lasciare"
     niveausuiv.setPosition(sf::Vector2f(240,100)); // On associe à notre bouton "Niveau_Suivant" une position à 240 pixel sur notre axe X & à 100 sur notre axe Y
