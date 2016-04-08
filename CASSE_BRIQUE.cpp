@@ -72,6 +72,31 @@ void menuPause (sf::Texture &stop, sf::Sprite &sprite, sf::RenderWindow &window,
     return;
 }
 
+void initialisationBrique (int** tab, int nbLignes, int nbColonnes ) {
+    
+    for(int i = 0; i < nbLignes; i++){
+        for(int j = 0; j < nbColonnes; j++){
+            tab[i][j]= 1;
+        }
+    }
+    return;
+}
+
+
+void disparitonRebondSurBrique (int** brique,float &x, float &y, float &vitY, int nbLignes, int nbColonnes) {
+
+    for (int o = 1; o < nbLignes; o++ ) { // rebond et disparition sur les briques
+        for (int l = 1; l < nbColonnes; l++) {
+            if ((x>=l*55 && x<=(l*55)+45) && (brique[o][l] == 1) && (y+10>=80*o && y<=(80*o)+40)){
+                brique[o][l] = 0;
+                vitY = -vitY;
+            }
+        }
+    }
+}
+
+
+
 
 int main()
 {
