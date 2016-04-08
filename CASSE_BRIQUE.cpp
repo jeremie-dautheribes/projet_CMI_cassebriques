@@ -28,7 +28,7 @@ void menu(sf::RenderWindow &window)
     return;
 }
 
-void raquetteSouris (sf::Event &event, sf::RectangleShape &rectangle) { // mouvement de la raquette avec la souris
+void raquetteSouris (sf::Event &event, sf::RectangleShape &rectangle, float &rectX) { // mouvement de la raquette avec la souris
     
     
     float MouseX= event.mouseMove.x;
