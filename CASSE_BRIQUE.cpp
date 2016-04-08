@@ -104,7 +104,7 @@ void menuPause (sf::Texture &stop, sf::Sprite &sprite, sf::RenderWindow &window,
     
     circle.move(0,0); // On immobilise la balle
     while (window.isOpen() && pause){
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Si une fois la pause lancée,nous voulons redemarrer, bouton gauche souris
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Si une fois la pause lancée,nous voulons redemarrer, bouton gauche souris
             pause = false;
         }
         window.clear();
