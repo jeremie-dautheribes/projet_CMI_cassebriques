@@ -385,6 +385,13 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
             
+            if (event.type == sf::Event::Resized)
+            {
+                // on met à jour la vue, avec la nouvelle taille de la fenêtre
+                sf::FloatRect visibleArea(-250, -50, event.size.width, event.size.height);
+                window.setView(sf::View(visibleArea));
+                
+
         }
         
         window.clear(sf::Color::Blue);
