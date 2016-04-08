@@ -144,17 +144,10 @@ int main()
 
             float MouseX = event.mouseMove.x;
             if (pause){ // Si la variable pause est true
-                circle.move(0,0); // On immobilise la balle
-                while (window.isOpen() && pause){
-                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Si une fois la pause lancée,nous voulons redemarrer, bouton gauche souris
-                        pause = false;
-                    }
-                    window.clear();
-                    window.draw(sprite); // On affiche le sprite
-                    window.display();
-                }
-
+                mmenuPause(stop, sprite, window, pause, circle);
+            
             }
+            
             else{ // Sinon c'est le jeu normal
 
                 circle.move(vitX,vitY);
@@ -206,21 +199,7 @@ int main()
 
 
 
-                if (event.type == sf::Event::MouseMoved){
-
-                    if(MouseX+115>800){
-                        rectangle.setPosition(685,550);
-                    }
-                    else {
-                        if (MouseX<0){
-                            rectangle.setPosition(0,550);
-                        }
-                        else {
-                            rectangle.setPosition(MouseX,550);
-                        }
-                    }
-
-                }
+                raquetteSouris(event,rectangle);
 
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
                     window.close();
