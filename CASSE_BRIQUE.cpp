@@ -157,6 +157,28 @@ void disparitonRebondSurBrique (int** brique,float &x, float &y,float &vitX, flo
     }
 }
 
+void creationBrique(sf::RenderWindow &window,sf::RectangleShape Briques, int **brique, int nbLignes, int nbColonnes) {
+
+    for (int o = 1; o < nbLignes; o++ ) { // Création de lignes de briques (numérotées de 2 à 4)
+        for (int l = 1; l < nbColonnes; l++) {  // Création de colonnes de briques (numérotées de 1 à 8)
+            if (brique[o][l] == 2) {
+                Briques.setSize(sf::Vector2f(45,30));
+                Briques.setFillColor(sf::Color::Red);
+                Briques.setPosition(l*55,o*80);
+                window.draw(Briques);
+            }
+            else{
+                if(brique[o][l] == 1){
+                    Briques.setSize(sf::Vector2f(45,30));
+                    Briques.setFillColor(sf::Color::White);
+                    Briques.setPosition(l*55,o*80);
+                    window.draw(Briques);
+                }
+            }
+        }
+    }
+}
+
 
 
 int main()
@@ -187,7 +209,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 600), "CasseBriques"); //initialise la fenetre
     sf::CircleShape circle(5.f); //Créer notre balle : un cercle de dimension 8
     sf::RectangleShape rectangle; //créer notre raquette : un rectangle
-    sf::RectangleShape briques;
+    sf::RectangleShape Briques;
     rectangle.setSize(sf::Vector2f(115,15)); //Taille de notre raquette
     rectangle.setFillColor(sf::Color::Cyan); //Couleur de notre raquette
     rectangle.setPosition(400,550); // position initiale de notre raquette
@@ -285,24 +307,7 @@ int main()
         window.clear(sf::Color::Blue);
       
         
-        for (int o = 1; o < 4; o++ ) { // Création de lignes de briques (numérotées de 2 à 4)
-            for (int l = 1; l < 14; l++) {  // Création de colonnes de briques (numérotées de 1 à 8)
-                if (brique[o][l] == 2) {
-                    briques.setSize(sf::Vector2f(45,30));
-                    briques.setFillColor(sf::Color::Red);
-                    briques.setPosition(l*55,o*80);
-                    window.draw(briques);
-                }
-                else{
-                    if(brique[o][l] == 1){
-                        briques.setSize(sf::Vector2f(45,30));
-                        briques.setFillColor(sf::Color::White);
-                        briques.setPosition(l*55,o*80);
-                        window.draw(briques);
-                    }
-                }
-            }
-        }
+        creationBrique(window, Briques, brique, 4, 14);
         
         window.draw(circle);
         window.draw(rectangle);
