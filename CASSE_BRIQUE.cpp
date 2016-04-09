@@ -22,6 +22,7 @@ void menu(sf::RenderWindow &window)
             if (Event.type == sf::Event::KeyPressed)
                 finished = true;
         }
+        
         window.clear();
         window.display();
     }
