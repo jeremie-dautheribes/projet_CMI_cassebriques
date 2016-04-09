@@ -11,6 +11,7 @@ void raquetteSouris (sf::Event &event, sf::RectangleShape &rectangle, float &rec
     float MouseX= event.mouseMove.x;
 
     if (event.type == sf::Event::MouseMoved){
+        rectX = MouseX ;
         if(MouseX+115>800){
             rectangle.setPosition(685,550);
         }
