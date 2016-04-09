@@ -4,55 +4,46 @@
 #include <string>
 #include "Perdu.h"
 
-void losen (int lives, sf::RenderWindow &lose){
-if (lives == 0)
-    {
-    sf::RenderWindow fenetre(sf::VideoMode(1000, 800), "PERDU");
-    menuperdu(fenetre);
-    fenetre.close();
-    lives = 3;
-    }
-}
 
-void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu" pour lancer une fenètre avec des boutons recommencer & quitter lorsque l'on a perdu
+void menuperdu (sf::RenderWindow &fenetre){ // On crÃ©e une fonction "menuperdu" pour lancer une fenÃ¨tre avec des boutons recommencer & quitter lorsque l'on a perdu
 
     sf::Font fontp; // on initialise un fond
     sf::Text textp; // on initialise un texte
-    fontp.loadFromFile("Fonts\\introheadr-base.otf"); //On charge le type d'écrire (ici écriture basique)
+    fontp.loadFromFile("Fonts\\introheadr-base.otf"); //On charge le type d'Ã©crire (ici Ã©criture basique)
     textp.setFont(fontp); //On affecte au texte , un fond
-    textp.setString("Vous avez perdu , voulez vous recommencer?"); // Le texte vaut "vous avez gagné" (ce qui sera affiché plus tard)
-    textp.setCharacterSize(30); // Change la taille de la police à 30
-    textp.setStyle(sf::Text::Regular); // Pas d'effet d'écriture : on a une police en "regular"
+    textp.setString("Vous avez perdu , voulez vous recommencer?"); // Le texte vaut "vous avez gagnÃ©" (ce qui sera affichÃ© plus tard)
+    textp.setCharacterSize(30); // Change la taille de la police Ã  30
+    textp.setStyle(sf::Text::Regular); // Pas d'effet d'Ã©criture : on a une police en "regular"
 
     //Pour centrer le texte:
     sf::FloatRect textRectperdu = textp.getLocalBounds();
     textp.setOrigin(textRectperdu.width/2,textRectperdu.height/2);
     textp.setPosition(sf::Vector2f(500,100));
 
-    sf::Texture restart; // On crée une première texture pour notre bouton "recommencer"
-    sf::Texture leave; // on crée une seconde texture pour notre bouton "quitter"
-    sf::Sprite rejouer; // On crée notre premier sprite pour notre bouton "recommencer" que l'on associera à notre texture "restart"
-    sf::Sprite verlassen; // On crée notre second sprite pour notre bouton "quitter" que l'on associera à notre texture "leave"
+    sf::Texture restart; // On crÃ©e une premiÃ¨re texture pour notre bouton "recommencer"
+    sf::Texture leave; // on crÃ©e une seconde texture pour notre bouton "quitter"
+    sf::Sprite rejouer; // On crÃ©e notre premier sprite pour notre bouton "recommencer" que l'on associera Ã  notre texture "restart"
+    sf::Sprite verlassen; // On crÃ©e notre second sprite pour notre bouton "quitter" que l'on associera Ã  notre texture "leave"
     restart.loadFromFile("images\\recommencer.jpg"); //Charge l'image "recommencer"
     leave.loadFromFile("images\\quitter.jpg"); //charge l'image "quitter"
-    rejouer.setTexture(restart); // On associe notre première texture nommée "restart" à notre premier sprite "rejouer"
-    verlassen.setTexture(leave);// On associe notre seconde texture nommée "leave" à notre second sprite "verlassen"
-    rejouer.setPosition(sf::Vector2f(240,200)); // On associe à notre bouton "rejouer" une position à 240 pixel sur notre axe X & à 100 sur notre axe Y
-    verlassen.setPosition(sf::Vector2f(300,400)); // On associe à notre bouton "quitter" une position à 300 pixel sur notre axe X & à 300 sur notre axe Y
+    rejouer.setTexture(restart); // On associe notre premiÃ¨re texture nommÃ©e "restart" Ã  notre premier sprite "rejouer"
+    verlassen.setTexture(leave);// On associe notre seconde texture nommÃ©e "leave" Ã  notre second sprite "verlassen"
+    rejouer.setPosition(sf::Vector2f(240,200)); // On associe Ã  notre bouton "rejouer" une position Ã  240 pixel sur notre axe X & Ã  100 sur notre axe Y
+    verlassen.setPosition(sf::Vector2f(300,400)); // On associe Ã  notre bouton "quitter" une position Ã  300 pixel sur notre axe X & Ã  300 sur notre axe Y
     rejouer.move(sf::Vector2f(10,10));
     verlassen.move(sf::Vector2f(10,10));
 
-    sf::Event evenement; // On crée un evenement
-    fenetre.clear(sf::Color(103,154,198)); //affecte une couleur bleuté en fond de notre menu
+    sf::Event evenement; // On crÃ©e un evenement
+    fenetre.clear(sf::Color(103,154,198)); //affecte une couleur bleutÃ© en fond de notre menu
     fenetre.draw(textp);
     fenetre.draw(rejouer); // On dessine notre sprite "rejouer" pour afficher notre bouton "recommencer"
     fenetre.draw(verlassen); // On dessine notre sprite "verlassen" pour afficher notre bouton "quitter"
     fenetre.display();
 
-    bool pourfinir = false; // On crée un booléen pour laisser notre fenetre de menu ouverte (tant qu'on n'a pas fait d'evenement)
+    bool pourfinir = false; // On crÃ©e un boolÃ©en pour laisser notre fenetre de menu ouverte (tant qu'on n'a pas fait d'evenement)
     while (! pourfinir) { // Boucle while pour laisser la fenetre ouverte
 
-        while (fenetre.pollEvent(evenement)) // Boucle while , qui prend en compte notre fenetre nommée winwin (appelée lors du main) & notre evenement
+        while (fenetre.pollEvent(evenement)) // Boucle while , qui prend en compte notre fenetre nommÃ©e winwin (appelÃ©e lors du main) & notre evenement
         {
 
             if (evenement.type == sf::Event::Closed) // Si on appuie sur la croix
@@ -60,16 +51,16 @@ void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu" 
                 return; //la page se ferme
             }
             if (evenement.type == sf::Event::MouseButtonPressed) { // Si on clique sur un bouton de notre souris.
-                float X=evenement.mouseButton.x; // On récupère les coordonnées de notre souris sur l'axe X
-                float Y=evenement.mouseButton.y; // On récupère les coordonnées de notre souris sur l'axe Y
+                float X=evenement.mouseButton.x; // On rÃ©cupÃ¨re les coordonnÃ©es de notre souris sur l'axe X
+                float Y=evenement.mouseButton.y; // On rÃ©cupÃ¨re les coordonnÃ©es de notre souris sur l'axe Y
 
 
-                if (evenement.mouseButton.button == sf::Mouse::Left && verlassen.getGlobalBounds().contains(X, Y)) { // Si on fait un clic gauche et que les coordonnées de notre souris coincident avec notre sprite "verlassen"
+                if (evenement.mouseButton.button == sf::Mouse::Left && verlassen.getGlobalBounds().contains(X, Y)) { // Si on fait un clic gauche et que les coordonnÃ©es de notre souris coincident avec notre sprite "verlassen"
 
                     return; // La page se ferme et donc on quitte le jeu
 
                 }
-                if (evenement.mouseButton.button == sf::Mouse::Left && rejouer.getGlobalBounds().contains(X, Y)){ // Si on fait un clic gauche et que les coordonées de notre souris coincident avec notre sprite "rejour"
+                if (evenement.mouseButton.button == sf::Mouse::Left && rejouer.getGlobalBounds().contains(X, Y)){ // Si on fait un clic gauche et que les coordonÃ©es de notre souris coincident avec notre sprite "rejour"
 
                         pourfinir = true; // La fenetre "Perdu" se ferme et le jeu se relance
 
@@ -79,6 +70,41 @@ void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu" 
 
     }
     return;
+}
+
+void perdu (sf::Event &event, sf::RenderWindow &window, sf::RectangleShape &rectangle, sf::CircleShape &circle, sf::RectangleShape &Briques, int** brique, int &lives, float* xBalle, float* yBalle, float &vitX, float &vitY, bool &perd, float &rectX){
+    *xBalle = 400;
+    *yBalle = 500;
+    circle.setPosition(*xBalle,*yBalle);
+
+    if (lives == 0)
+    {
+        circle.move(0,0);
+        sf::RenderWindow perdu(sf::VideoMode(1000, 800), "PERDU");
+        menuperdu(perdu);
+        perdu.close();
+        lives = 3;
+    }
+
+    while (window.isOpen() && perd){
+
+
+        circle.move(0,0);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::G) && (lives != 0)){
+            perd = false;
+            vitX = 0;
+            sf::sleep(sf::seconds(0.1f));
+        }
+
+        raquetteSouris(event,rectangle,rectX);
+
+        window.clear(sf::Color::Blue);
+        creationBrique(window, Briques, brique, 4, 14);
+        window.draw(circle);
+        window.draw(rectangle);
+        window.display();
+    }
+
 }
 
 
