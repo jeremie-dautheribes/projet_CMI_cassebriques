@@ -407,6 +407,6 @@ int main()
         
     }
     
-    
+    delete [] brique;
     return 0;
 }
