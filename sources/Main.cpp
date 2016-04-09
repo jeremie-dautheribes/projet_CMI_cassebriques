@@ -11,7 +11,8 @@
 #include "Perdu.h"
 #include "raquette.h"
 
-template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaître la variable lives en jeu à côté de "Lives = "
+
+template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaÃ®tre la variable lives en jeu Ã  cÃ´tÃ© de "Lives = "
     std::ostringstream stream;
     stream << n;
     return stream.str();
@@ -19,14 +20,20 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
 
 int main()
 {
+    /*sf::Texture Tbackground;
+    sf::Sprite Sbackground;
+    Tbackground.loadFromFile("images\\jungle.jpg");
+    Sbackground.setTexture(Tbackground);
+    Sbackground.setColor(sf::Color(255,255,255,128));*/
+
+
     int lives = 3;
-    bool perd =  false;
     sf::RenderWindow winwin(sf::VideoMode(800, 600), "MENU");
     menu(winwin);
     winwin.close();
     sf:: Font font;
     sf:: Text text;
-    font.loadFromFile("Fonts\\introrustg-base2line.otf");
+    font.loadFromFile("introrustg-base2line.otf");
     text.setFont(font);
     text.setString("Lives = " + number_to_string(lives));
     text.setCharacterSize(24);
@@ -35,7 +42,7 @@ int main()
     sf::Texture stop; // Texture de l'image
     stop.loadFromFile("images\\Pause.jpg");
     sf::Sprite sprite;
-    sprite.setTexture(stop); // On associe la texture à un sprite
+    sprite.setTexture(stop); // On associe la texture Ã  un sprite
 
     float x = 400;
     float y = 300;
@@ -43,9 +50,15 @@ int main()
     float vitX = 0.;
     float vitY = 5.;
     bool pause = false;
+
+    sf::RectangleShape bord;
+    bord.setSize(sf::Vector2f(820,685));
+    bord.setFillColor(sf::Color::Transparent);
+    bord.setOutlineThickness(10);
+
     sf::RenderWindow window(sf::VideoMode(800, 600), "CasseBriques"); //initialise la fenetre
-    sf::CircleShape circle(5.f); //Créer notre balle : un cercle de dimension 8
-    sf::RectangleShape rectangle; //créer notre raquette : un rectangle
+    sf::CircleShape circle(5.f); //CrÃ©er notre balle : un cercle de dimension 8
+    sf::RectangleShape rectangle; //crÃ©er notre raquette : un rectangle
     sf::RectangleShape Briques;
     rectangle.setSize(sf::Vector2f(115,15)); //Taille de notre raquette
     rectangle.setFillColor(sf::Color::Cyan); //Couleur de notre raquette
@@ -85,11 +98,7 @@ int main()
 
         }
 
-        else {
-            if(perd){
-                perdu(event,window,rectangle,circle,Briques,brique,lives,x,y,vitX,vitY,perd,rectX);
-            }
-              else{ // Sinon c'est le jeu normal
+        else{ // Sinon c'est le jeu normal
 
             circle.move(vitX,vitY);
 
@@ -111,7 +120,6 @@ int main()
          rebond(x, y, MouseX ,vitX ,vitY ,rectX);
 
         }
-        }
 
 
 
@@ -120,25 +128,17 @@ int main()
 
         if (sf::Mouse::isButtonPressed(sf::Mouse::Right)|| sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Condition pour lancer l'algorithme de la pause
             pause = true;
-            sf::sleep(sf::seconds(0.1f));
         }
 
 
 
-        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::D))) // Si le bouton droite est appuyé du clavier , la raquette va à droite
+        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::D))) // Si le bouton droite est appuyÃ© du clavier , la raquette va Ã  droite
         {
             rectangle.move(10,0);
             rectX += 10;
         }
 
-        if (y > 600){
-            perd = true;
-            lives--;
-            text.setString("Lives = " + number_to_string(lives));
-            sf::sleep(sf::seconds(0.1f));
-        }
-
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncÃ© , la raquette va Ã  gauche.
         {
             rectangle.move(-10,0);
             rectX -= 10;
@@ -154,7 +154,7 @@ int main()
 
             if (event.type == sf::Event::Resized)
             {
-                // on met à jour la vue, avec la nouvelle taille de la fenêtre
+                // on met Ã  jour la vue, avec la nouvelle taille de la fenÃªtre
                 sf::FloatRect visibleArea(-250, -50, event.size.width, event.size.height);
                 window.setView(sf::View(visibleArea));
 
@@ -169,6 +169,8 @@ int main()
         window.draw(circle);
         window.draw(rectangle);
         window.draw(text);
+        window.draw(bord);
+        //window.draw(Sbackground);
         window.display();
 
     }
