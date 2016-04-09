@@ -42,7 +42,7 @@
                         }
                 else {
 
-                    if (yBalle>=540){
+                    if (yBalle>=540 && yBalle<=560){
                         if((xBalle>=MouseX && xBalle<=MouseX+115) ||(xBalle>=rectX && xBalle<=rectX+115)){
                             vitY = -vitY;
                             vitX = -vitX;
