@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 #include "Perdu.h"
+#include "Perdu.h"
+#include "raquette.h"
+#include "briques.h"
 
 
 void menuperdu (sf::RenderWindow &fenetre){ // On crée une fonction "menuperdu" pour lancer une fenètre avec des boutons recommencer & quitter lorsque l'on a perdu
