@@ -27,13 +27,31 @@ int main()
     Sjungle.play();
     Sjungle.setLoop(true);
     
-    sf::Texture Tbackground;
-    sf::Sprite Sbackground;
-    Tbackground.loadFromFile("images\\jungle.jpg");
-    Sbackground.setTexture(Tbackground);
-    Sbackground.setColor(sf::Color(255,255,255,128));
-    Sbackground.scale(sf::Vector2f(0.75f,0.95f));
-    Sbackground.setOrigin(sf::Vector2f(-1,1));
+    /*sf::Texture Tbackground1; //On crée une texture "Tbackground"
+    sf::Sprite Sbackground1; //On crée un Sprite "background"
+    Tbackground1.loadFromFile("images\\jungle.jpg"); // On charge l'image jungle dans la texture
+    Sbackground1.setTexture(Tbackground1); //On affecte la texture au sprite
+    Sbackground1.setColor(sf::Color(255,255,255,128)); //on lui met de la transparence
+    Sbackground1.scale(sf::Vector2f(0.75f,0.95f)); // on change sa taille pour l'adapter à la fenetre
+    Sbackground1.setOrigin(sf::Vector2f(-1,1)); // on la déplace légèrement sur la gauche
+*/
+    /*sf::Texture Tbackground2; //On crée une texture "Tbackground"
+    sf::Sprite Sbackground2; //On crée un Sprite "background"
+    Tbackground2.loadFromFile("images\\pharaon.jpg"); // On charge l'image jungle dans la texture
+    Sbackground2.setTexture(Tbackground2); //On affecte la texture au sprite
+    Sbackground2.setColor(sf::Color(255,255,255,128)); //on lui met de la transparence
+    Sbackground2.scale(sf::Vector2f(0.43f,0.58f)); // on change sa taille pour l'adapter à la fenetre
+    Sbackground2.setOrigin(sf::Vector2f(10,10)); // on la déplace légèrement sur la gauche
+*/
+
+    sf::Texture Tbackground3; //On crée une texture "Tbackground"
+    sf::Sprite Sbackground3; //On crée un Sprite "background"
+    Tbackground3.loadFromFile("images\\neige.jpg"); // On charge l'image jungle dans la texture
+    Sbackground3.setTexture(Tbackground3); //On affecte la texture au sprite
+    Sbackground3.setColor(sf::Color(255,255,255,128)); //on lui met de la transparence
+    Sbackground3.scale(sf::Vector2f(0.43f,0.65f)); // on change sa taille pour l'adapter à la fenetre
+    Sbackground3.setOrigin(sf::Vector2f(12,15)); // on la déplace légèrement sur la gauche
+
 
     int lives = 3;
     bool perd =  false;
@@ -183,7 +201,7 @@ int main()
         }
         }
         window.clear();
-        window.draw(Sbackground);
+        window.draw(Sbackground); // ATTENTION ADAPTER LE DRAW SELON LE BACKGROUND POUR LES NIVEAUX
 
         creationBrique(window, Briques, brique, 4, 14);
 
