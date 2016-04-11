@@ -21,8 +21,13 @@
                     if((xBalle>=MouseX && xBalle<=MouseX+55) || (xBalle>=rectX && xBalle<=rectX+55)){
                             if((xBalle>=MouseX && xBalle<=MouseX+27) || (xBalle>=rectX && xBalle <=rectX+27))
                             {
-                                if(vitX == 0)
-                                vitX += 6;
+                                if((xBalle >MouseX && xBalle <=MouseX+13) || (xBalle >=rectX && xBalle <= rectX+13))
+                                {
+                                    if(vitX == 0)
+                                    vitX += 6;
+                                }
+                                else if(vitX == 0)
+                                    vitX -=6;
 
                             }
                             else{
