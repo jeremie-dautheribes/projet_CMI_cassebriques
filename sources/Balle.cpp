@@ -19,23 +19,38 @@
 
                 if (yBalle==540) {
                     if((xBalle>=MouseX && xBalle<=MouseX+55) || (xBalle>=rectX && xBalle<=rectX+55)){
+                            if((xBalle>=MouseX && xBalle<=MouseX+27) || (xBalle>=rectX && xBalle <=rectX+27))
+                            {
+                                if(vitX == 0)
+                                vitX += 6;
+
+                            }
+                            else{
                             if(vitX == 0)
                                 vitX -= 3;
                             else {
                                 if(vitX > 0)
                                     vitX = 0;
                             }
-                            vitY = -5;
+                            vitY = -vitY;
+                            }
                         }
                         else {
                             if((xBalle>=MouseX+60 && xBalle<=MouseX+115) || (xBalle>=rectX+60 && xBalle<=rectX+115)){
-                                if(vitX == 0)
-                                    vitX += 3;
+                                    if((xBalle>=MouseX+30 && xBalle<=MouseX+115) || (xBalle>= rectX+30 && xBalle <=rectX+115))
+                                       {
+                                           if(vitX == 0)
+                                            vitX -=6;
+                                       }
+                                       else{
+                                            if(vitX == 0)
+                                            vitX += 3;
                                 else {
                                     if(vitX < 0)
                                         vitX = 0;
                                 }
-                            vitY = -5;
+                                       }
+                            vitY = -vitY;
                             }
 
                         }
