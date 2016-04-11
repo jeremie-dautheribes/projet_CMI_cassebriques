@@ -82,7 +82,7 @@ void menuperdu (sf::RenderWindow &fenetre,sf::RenderWindow &window,int **brique)
     return;
 }
 
-void perdu (sf::Event &event,sf::RenderWindow &window, sf::RectangleShape &rectangle,sf::RectangleShape &bord, sf::CircleShape &circle, sf::RectangleShape &Briques, int** brique, int &lives, float &xBalle, float &yBalle, float &vitX, float &vitY, bool &perd, float &rectX,float &MouseX){
+void perdu (sf::Event &event,sf::Sprite &Sbackground,sf::RenderWindow &window, sf::RectangleShape &rectangle,sf::RectangleShape &bord, sf::CircleShape &circle, sf::RectangleShape &Briques, int** brique, int &lives, float &xBalle, float &yBalle, float &vitX, float &vitY, bool &perd, float &rectX,float &MouseX){
     xBalle = 400;
     yBalle = 400;
     circle.setPosition(xBalle,yBalle);
@@ -126,6 +126,7 @@ void perdu (sf::Event &event,sf::RenderWindow &window, sf::RectangleShape &recta
             }
 
         window.clear(sf::Color::Blue);
+        window.draw(Sbackground);
         creationBrique(window, Briques, brique, 4, 14);
         window.draw(circle);
         window.draw(rectangle);
