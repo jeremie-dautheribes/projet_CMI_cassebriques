@@ -26,6 +26,14 @@ int main()
     Sjungle.setBuffer(jungle);
     Sjungle.play();
     Sjungle.setLoop(true);
+    
+    sf::Texture Tbackground;
+    sf::Sprite Sbackground;
+    Tbackground.loadFromFile("images\\jungle.jpg");
+    Sbackground.setTexture(Tbackground);
+    Sbackground.setColor(sf::Color(255,255,255,128));
+    Sbackground.scale(sf::Vector2f(0.75f,0.95f));
+    Sbackground.setOrigin(sf::Vector2f(-1,1));
 
     int lives = 3;
     bool perd =  false;
@@ -174,8 +182,8 @@ int main()
 
         }
         }
-        window.clear(sf::Color::Blue);
-
+        window.clear();
+        window.draw(Sbackground);
 
         creationBrique(window, Briques, brique, 4, 14);
 
