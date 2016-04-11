@@ -5,7 +5,7 @@
 #include <string>
 #include "fin.h"
 
-void fin (sf::RenderWindow &generique){ // On crée une fonction "fin" pour lancer une fenètre avec un générique de fin lorsque l'on a gagné tous les niveaux
+void fin (sf::RenderWindow &generique,sf::RenderWindow &window){ // On crée une fonction "fin" pour lancer une fenètre avec un générique de fin lorsque l'on a gagné tous les niveaux
 
 sf::Font font; // on initialise un fond
 sf::Text text; // on initialise un texte
@@ -148,22 +148,15 @@ while (! fini)
     {
         if (eventu.type == sf::Event::Closed) // Si on appuie sur la croix
             {
+                window.close();
                 return; //la page se ferme
             }
         if(eventu.type == sf::Event::KeyPressed)
             {
+                window.close();
                 fini = true;
             }
     }
 }
 
 }
-
-
-/*int main (){
-
-    sf::RenderWindow generique(sf::VideoMode(1000, 800), "GAGNE GAGNE GAGNE");
-    fin(generique);
-    generique.close();
-
-} */
