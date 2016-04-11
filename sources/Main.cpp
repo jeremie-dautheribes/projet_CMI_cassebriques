@@ -17,7 +17,13 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
 
 int main()
 {
-
+    sf::SoundBuffer jungle;
+    sf::Sound Sjungle;
+    jungle.loadFromFile("songs\\rythme.ogg");
+    Sjungle.setBuffer(jungle);
+    Sjungle.play();
+    Sjungle.setLoop(true);
+    
     int lives = 3;
     bool perd =  false;
     sf::RenderWindow winwin(sf::VideoMode(800, 600), "MENU");
