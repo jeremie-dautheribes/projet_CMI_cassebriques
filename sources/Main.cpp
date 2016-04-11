@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -20,12 +21,18 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
 
 int main()
 {
+    
+    sf::SoundBuffer jungle; // on créé un sound Buffer
+    sf::Sound Sjungle; // on créé un son
+    jungle.loadFromFile("songs\\rythme.ogg");
+    Sjungle.setBuffer
     /*sf::Texture Tbackground;
     sf::Sprite Sbackground;
     Tbackground.loadFromFile("images\\jungle.jpg");
     Sbackground.setTexture(Tbackground);
     Sbackground.setColor(sf::Color(255,255,255,128));*/
-
+    
+    
 
     int lives = 3;
     sf::RenderWindow winwin(sf::VideoMode(800, 600), "MENU");
