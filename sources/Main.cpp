@@ -90,7 +90,8 @@ while(window.isOpen()){
 
 
 }
-
+    for(int k(0); k<5; k++)
+        delete[] brique[k];
     delete [] brique;
     return 0;
 }
