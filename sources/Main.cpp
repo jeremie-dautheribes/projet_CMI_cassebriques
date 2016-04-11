@@ -12,7 +12,6 @@
 #include "Perdu.h"
 #include "raquette.h"
 
-
 template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaître la variable lives en jeu à côté de "Lives = "
     std::ostringstream stream;
     stream << n;
@@ -21,28 +20,21 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
 
 int main()
 {
-    
     sf::SoundBuffer jungle; // on créé un sound Buffer
     sf::Sound Sjungle; // on créé un son
     jungle.loadFromFile("songs\\rythme.ogg");
     Sjungle.setBuffer(jungle);
     Sjungle.play();
     Sjungle.setLoop(true);
-    /*sf::Texture Tbackground;
-    sf::Sprite Sbackground;
-    Tbackground.loadFromFile("images\\jungle.jpg");
-    Sbackground.setTexture(Tbackground);
-    Sbackground.setColor(sf::Color(255,255,255,128));*/
-    
-    
 
     int lives = 3;
+    bool perd =  false;
     sf::RenderWindow winwin(sf::VideoMode(800, 600), "MENU");
     menu(winwin);
     winwin.close();
     sf:: Font font;
     sf:: Text text;
-    font.loadFromFile("introrustg-base2line.otf");
+    font.loadFromFile("Fonts\\introrustg-base2line.otf");
     text.setFont(font);
     text.setString("Lives = " + number_to_string(lives));
     text.setCharacterSize(24);
@@ -107,7 +99,12 @@ int main()
 
         }
 
-        else{ // Sinon c'est le jeu normal
+        else {
+            if(perd){
+                perdu(event,window,rectangle,bord,circle,Briques,brique,lives,x,y,vitX,vitY,perd,rectX,MouseX);
+                text.setString("Lives = " + number_to_string(lives));
+            }
+              else{ // Sinon c'est le jeu normal
 
             circle.move(vitX,vitY);
 
@@ -119,8 +116,8 @@ int main()
             disparitonRebondSurBrique(brique, x, y, vitX, vitY, 4, 14);
 
 
-
             raquetteSouris(event,rectangle,rectX);
+
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
                 window.close();
@@ -128,6 +125,7 @@ int main()
 
          rebond(x, y, MouseX ,vitX ,vitY ,rectX);
 
+        }
         }
 
 
@@ -137,6 +135,7 @@ int main()
 
         if (sf::Mouse::isButtonPressed(sf::Mouse::Right)|| sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Condition pour lancer l'algorithme de la pause
             pause = true;
+            sf::sleep(sf::seconds(0.1f));
         }
 
 
@@ -145,6 +144,11 @@ int main()
         {
             rectangle.move(10,0);
             rectX += 10;
+        }
+
+        if (y > 600){
+            perd = true;
+            lives--;
         }
 
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
@@ -179,7 +183,6 @@ int main()
         window.draw(rectangle);
         window.draw(text);
         window.draw(bord);
-        //window.draw(Sbackground);
         window.display();
 
     }
