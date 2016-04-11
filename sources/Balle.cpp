@@ -25,7 +25,7 @@
                                 if(vitX > 0)
                                     vitX = 0;
                             }
-                            vitY = -vitY;
+                            vitY = -5;
                         }
                         else {
                             if((xBalle>=MouseX+60 && xBalle<=MouseX+115) || (xBalle>=rectX+60 && xBalle<=rectX+115)){
@@ -35,7 +35,7 @@
                                     if(vitX < 0)
                                         vitX = 0;
                                 }
-                            vitY = -vitY;
+                            vitY = -5;
                             }
 
                         }
@@ -44,7 +44,7 @@
 
                     if (yBalle>=540 && yBalle<=560){
                         if((xBalle>=MouseX && xBalle<=MouseX+115) ||(xBalle>=rectX && xBalle<=rectX+115)){
-                            vitY = -vitY;
+                            vitY = -5;
                             vitX = -vitX;
                     }
                 }
