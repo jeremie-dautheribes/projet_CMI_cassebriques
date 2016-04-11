@@ -25,7 +25,9 @@ int main()
     sf::SoundBuffer jungle; // on créé un sound Buffer
     sf::Sound Sjungle; // on créé un son
     jungle.loadFromFile("songs\\rythme.ogg");
-    Sjungle.setBuffer
+    Sjungle.setBuffer(jungle);
+    Sjungle.play();
+    Sjungle.setLoop(true);
     /*sf::Texture Tbackground;
     sf::Sprite Sbackground;
     Tbackground.loadFromFile("images\\jungle.jpg");
