@@ -1,0 +1,175 @@
+Titre : "Développement du jeu Casse_Briques"
+Etudiants: Camille Gosset, jérémie Dautheribes, Thomas Bertin
+Soutenu le: 29 avril 2016
+
+I/ intro :
+	1.1- Généralité :
+Objectifs du projet: Conception d'un jeu vidéo dans plusieurs but:
+-S'initier au développement (développement en groupe)
+-S'améliorer en programmation et apprendre le langage objet pour une meilleur approche en troisième année de licence
+et avoir des connaissances de bases en C++ dans à peu près tous les domaines.
+-Avoir une idée de réelle conception de projet comme aurait un ingénieur (par exemple): Réfléchir préalablement au projet,
+création d'un planning dans le but de gérer chaque personnes de l'équipe ainsi que les taches que chaque personne doit accomplir,
+esprit de travail de groupe , savoir gérer les problèmes que l'on rencontre et savoir surmonter la défaillance dans le planning et le réadapter et savoir rattraper son retard en cherchant à accomplir ses objectifs (sinon pénalité de l'équipe ainsi que retard dans le codage du jeu)
+
+La durée: 6h ont été consacrées à la reflexion du projet par les comptes rendus des jeux que nous devions faire (6h par jeu).
+Ensuite nous disposions de 6 séances de cours de 3h pour coder le jeu.
+Cependant nous avons du consacrer un temps minimum de 40h (en comptant les séances) pour le développement du jeu sinon le codage complet aurait été impossible. 
+En effet, nous nous fixions des objectifs pour chaque semaine (inscrite dans le planning) et nous devions les respecter le plus possible. 
+
+L'organisation: Nous avons créée un planning pour toutes les tâches que nous devions faire.
+
+L'encadrement : Nous avons été encadré par madame Baert lors de chaque séance. Durant une absence de madame Anne-Elisabeth Baert,
+elle a été remplacée par monsieur Vincent Boudet. 
+De plus, nous avons pu être encadré lors de nos cours de programmation impérative par madame Bouziane.
+
+	1.2-Le sujet :
+
+	1.3-Cahier des charges:
+Difficultées rencontrées : - BackGround (impossibilité de redimensionner l'image en fonction de la fenêtre)
+- Algorithme pour perdre.
+
+
+II/ Organisation du projet :
+
+	2.1- Organisation du travail :
+-Réunions de travail : Elles nous ont servis à mettre en commun les tâches réparties et se répartir les objectifs de la semaine suivante.
+De plus , elles nous ont permis de nous réunir pour parler des problèmes que nous rencontrions et s'aider mutuellement.
+-Répartition des tâches: Comme nous sommes un groupe hétérogène nous avons pû nous répartir les tâches selon nos affinités
+car nous nous complétions en terme de programmation.
+Planification du développement :
+Election d'un chef de projet: Nous n'avons pas élu de chef de projet car nous arrivions à communiquer entre nous et nous étions suffisament motivés pour ne pas à avoir un chef pour remotiver.
+Etant une équipe organisée , il n'était pas nécessaire d'un chef de groupe pour éviter que nous partions dans tous les sens.
+De plus, peut- être qu'un chef de groupe aurait amener des tensions au sein du groupe. (refus des autres de se faire gouverner).
+gestion du groupe étudiant: 
+	2.2- Choix des outils de développement :
+Nous avons choisis le C++ car c'est le langage que nous manipulons depuis le début de l'année avec de vraies bases solides:
+En effet, l'apprentissage seul mène à une application "brouillon" du langage. 
+Notre prof de programmation impérative , madame Bouziane avait plus les outils pour nous aider si on avait des questions en C++
+et étant donné des connaissances en langage objet lacunaires au commencement du projet. Nous avons fait le choix de nous diriger vers le C++.
+
+Nous avons choisis de coder sous Windows et Mac plutôt que Linux car les bibliothèques sont différentes sous Windows/ Mac et Linux.
+Et Windows/Mac se prêtent bien à l'univers des jeux vidéos: Le développement sous Windows est plus fourni. 
+De plus, nous sommes plus à l'aise avec Windows/Mac puisqe nous avons tous trois des ordinateur tournant sous Windows (dont une personne sur Windows et Mac).
+
+{Editeur:
+Compilateur: Sous code Blocks, le compilateur que nous avions était le GCC 4.9.2.
+Débogueur:} Code Blocks et Xcode car nous codions sous windows et mac et ces deux IDE était proche en terme de programmation. 
+{Gestionnaire de Versions:
+Gestionnaire de projet:} GitHub car il est très pratique pour synchroniser les codes. De plus, on peut mettre des extensions aux fichiers et on a un système d'historique.
+De plus, avec github, on peut directement modifier les fichiers donc chacun pouvait mettre ce qu'il faisait au fur et à mesure de l'avancement.
+Nous avons utilisé la SFML comme bibliothèque car elle semblait plus simple d'utilisation ( et on l'a trouvé intuitive car on retrouvait des mêmes principes pour différents code , ex: association Sprite/Texture et association Sound/SoundBuffer)
+De plus, nous avions de meilleurs tutos qui sont en français pour nous aider dans notre développement.
+Outils d'analyse UML: Nous n'avons pas utilisé de UML.
+
+III/ Analyse du projet :
+Analyse préalable: Nous avons découper le projet en sous projet: On a découpé notre projet suivant l'avancée dans le jeu dans le temps.
+Tâche n°1 : Briques 
+-créer : initialisation : 2 boucles for. 
+-collisions 
+-affecter une fonction aux briques : (Briques Spéciales) nombre de coup pour faire disparaitre les briques 
+Tache n°2 : tout ce qui n'apparait qu'une seule fois : Environnement 
+-Fenêtre  
+-Background  
+Tache n°3: passage des niveaux 
+-créer un bouton : "passer au niveau suivant" ou "sauver et quitter".  
+Tache n°4: Bonus  
+- affecter un icone au bonus pour qu'il soit visible à l'écran.  
+- associer un bonus à une brique pour quand on la casse le bonus descende l'écran pour que la plateforme puisse le récupérer. Donc affecter un mouvement de descente par une fonction au bonus. 
+- créer une fonction qui prend en compte les coordonnées de la raquette & celles de l'icône bonus pour tester si la raquette a récupéré le bonus ou non. 
+-effet de la vodka de sergueï = Malus.  
+Tache n°5 : Son 
+- Création de la musique globale, d'arrière-plan.  
+- bruitage1 : cassage de brique : quand ya collision on entend l'impact de la balle sur la brique.  
+- bruitage2 : tous les bruits annexes : lancement de la balle, bruit d'activation d'un bonus, bruit des lances missiles etc...  
+Tache n°6 : Balle 
+-créer la balle + afficher la balle 
+-créer une fonctionne qui laisse la balle coller à la plateforme tant que le joueur ne clique pas pour l'envoyer. 
+-variable qui prend en compte les coordonnées de la balle  
+-fonction pour les collisions : Cond (quand la balle touche un bord, Les coordonnées du vecteur de déplacement de la balle (x;y) deviennent (-x ; -y) (les vecteurs deviennent orthogonaux).  
+-  
+Tache n°7 : Fenêtres 
+-Pop-up "Game over" 
+-pop-up "gagné" 
+-pop-up "voulez-vous rejouer ?" 
+-Pages de menu :  
+      -Jouer  
+      -Options  
+Tache n°8 : Mémoire 
+-Faire une mémoire qui enregistre le niveau que l'on vient de gagner. (Pour pouvoir y revenir plus tard) 
+-Fonction qui écrase la mémoire pour renvoyer le joueur au début.  
+Tache n°9: Background (par niveau environ 3 niveaux avec 3 thèmes + 1 thème bonus si possible ) 
+Analyse détaillée: 
+
+IV/ Développement :
+	1-Développement 1 :
+Préalablement , nous avons installé la bibliothèque SFML et installer notre IDE (Codeblocks). 
+Nous avons du d'abord prendre des bases en terme de développement objet: Se renseigner sur les classes en C++ 
+et regarder des tutoriels pour avoir plus de notions en programation C++, notamment la programmation objet.
+Nous avons tout de suite chercher à faire les décors et les sons en attendant d'accroître plus de notions en programmation objets sans perdre de temps.
+Nous avons donc fait 3 fonds et plusieurs musiques.
+Nous avons donc télécharger Audacity pour pouvoir enregistrer nos musiques.
+	2-Développement 2 :
+Ensuite nous avons commencé par les bases : Initialiser une fenêtre avec une raquette et une balle (immobile pour ce début).
+Nous nous sommes attaqués au mouvement de la raquette et de la balle: faire en sorte que la balle rebondisse sur tous les murs (préalablement) et sur la raquette.
+Nous avons mis plusieurs possibilités de mouvement de la raquette: Mouvement avec le clavier (gauche/droite) , avec les touches du clavier (Q et D) et la souris (mouvement de la souris).
+Nous avons enlevé la visibilité du curseur pour plus d'esthétique.
+	3-Développement 3 :
+Nous avons ensuite fait un premier Menu: Celui qui apparaît lorsque l'on lance le jeu où nous avons rencontré plusieurs problèmes: Nous n'arrivions pas à afficher nos boutons du menus.
+Une fois ce problème résolu , nous avons rencontré un problème avec la coordination souris/Bouton pour commencer le jeu: Notre jeu se lançait même lorsque l'on appuyait ailleurs donc impossibilité d'atteindre les règles du jeu.
+Nous avons su régler ce problème, notre fonction ne récupérer pas la position du bouton donc nous entrions soit toujours dans notre boucle , soit jamais.
+Nous avons générer un timer pour que le joueur puisse se mettre en pause où nous avons rencontré un problème (au final résolu) : Nous n'arrivions pas à sortir du menu pause.
+Nous avons intégrer à notre pause & notre jeu complet le fait que l'on puisse sortir du jeu en appuyant sur Echap.
+	4-Développement 4 :
+Nous avons commencer par initialiser les briques, nous y avons ensuite ajouter une collision : Les briques se cassent au contact de la balle.
+Nous avons ensuite décider d'ajouter un code couleur pour chaque Briques: Jaune pour casser les briques en 3 coups, Rouge pour deux coups et Blanche un seul coup.
+Nous voulions intégrer les briques jaunes au niveau 3 seulement donc nous avons fait une fonction pour chaque niveau. Nous avons donc intégrer un Background différent pour chaque niveau.
+
+	5-Développement 5 : Tous les menus : 
+Nous avons donc créer 3 menus supplémentaires: 
+-Le menu lorsque l'on gagne un niveau: Pour accéder au niveau suivant ou quitter le jeu. 
+Nous avons donc créée un compteur Niveau qui, lorsque toutes les briques sont cassées , s'incrémente pour passer à la fonction (niveau+1).
+et le Menu gagné se lance.
+-Le menu lorsque l'on perd : Nous avons créée un compteur Vie  qui, lorsque la balle passe sous la raquette, se décrémente.
+Lorsque le compteur Vie = 0, le menu perdu se lance et on a le choix: Recommencer ou quitter.
+Une fois le menu lancé , le compteur Vie revient à 3.
+-Le menu de fin : Une fois les 3 niveaux passés : Donc lorsque le compteur Niveau passe à 4 , le menu fin se lance. 
+Avec nos noms; l'année; les logos du cmi, figure , université de montpellier et faculté des sciences et d'autres informations.
+
+
+
+V/ Manuel d'utilisation :
+
+Pour lancer notre application , il faut ouvrir notre code avec un IDE (codeBlocks notamment) et le compiler à l'aide de la touche F9 pour CodeBlock.
+
+VI/ Perspectives et conclusions : 
+	6.1- Perspectives:
+Nous n'avons pas eu le temps de mettre des bonus dans notre jeu (par réelle manque de temps).
+Néanmoins nous avons des idées pour les intégrer: nous savons que cela marche par sprite. 
+Nous aurions pu avoir une meilleure gestion du mouvement de la balle par "loi de physique". 
+Nous aurions pu aussi ajouter des textures à nos briques pour plus d'esthétiques: mettre un effet de Brique cassée lorsque l'on touche une brique qui se casse au bout de plusieurs coup.
+
+	6.2-  Conclusions:
+		6.2.1- Fonctionnement de l'application: 
+Négatif : Lorsque la balle est trop proche de la raquette au même niveau mais pas tout à fait sur la raquette , la balle tremble. 
+Nous avons rencontré des problèmes de collisions sur les briques et la raquette principalement. 
+Selon la résolution de l'écran, les boutons ne sont pas parfaitement alignés dans la fenêtre.
+Problème lors de la redimension des fenêtres : Mauvais decadrage , les images ne prennent pas la totalité de l'écran. 
+Pour les menus , lorsqu'on les agrandit ils gardent leur taille et un carré blanc apparaît.
+
+Nous avons sinon un jeu qui marche dans sa globalité: tous les menus se lancent quand il est souhaité, nos sons se lancent et se jouent pendant le temps souhaité.
+Nous avons une raquette qui bouge comme souhaitée avec une balle qui rebondit et se réinitialise lorsqu'elle passe sous la raquette.
+Les outils comme Codeblocks ont bien été choisis car très intuitif: Lorsqu'il y a un bug, l'IDE nous indique la ligne directement en nous la pointant.
+Ensuite nous avons la liste des fonctions associées à ce que nous utilisons. Comme ça nous pouvons faire du "à tatons" avec le codage.
+Nous avons rapidement pris la main avec nos IDE.
+Nous avons été, peut-être trop ambitieux face à notre projet (en ce qui concerne les bonus notament) mais nous avons réussi à faire un jeu dans sa globalité et qui marche ce qui est le principal.
+
+		6.2.2- Fonctionnement du groupe de travail:
+Nous avons rencontrés plusieurs problèmes : Nous avons eu du mal à renvoyer le joueur sur le menu perdu lorsque le nombre de vie était à perdu car le compteur s'incrémenter et se décrémenter.
+Nous avons rencontrés un problème de Background: impossibilité de redimensionner l'image selon la taille de la fenêtre (problème incorrigé, nous avons privilégié un background qui ait la taille de la fenetre sans être agrandit).
+
+Nous avons manqué un peu de temps: 6 semaines auraient suffit si nous avions eu ne serait-ce que quelques notions en programmation objet C++. 
+Nous avons perdu 1 à 2 semaines à faire plusieurs tutoriels.
+Néanmoins nous étions un groupe motivé et avec des maîtrises de plusieurs tâches différentes ce qui nous a permis de nous répartir plus facilement et intuitivement les tâches
+et a rendu un projet plus "facile à gérer".
+De plus, le fait d'être plus laxiste au niveau du temps a permis à certaines d'être moins stressée par le temps, d'où le fait de la non utilisation d'un UML.
