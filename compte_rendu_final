@@ -23,12 +23,27 @@ L'encadrement : Nous avons été encadré par madame Baert lors de chaque séanc
 elle a été remplacée par monsieur Vincent Boudet. 
 De plus, nous avons pu être encadré lors de nos cours de programmation impérative par madame Bouziane.
 
-	1.2-Le sujet :
+	1.2-Le sujet : 
+Nom du jeu : Casse-Briques
+Ce jeu se joue seul et à l'aide de la souris ou bien du clavier.
+Le but du jeu est de simplement réussir à casser toutes les briques de chaque niveau.
+Pour cela le joueur contrôle une barre, appelée "raquette" située en bas de l'écran de jeu, lui permettant de renvoyer une balle en déplaçant cette dernière horizontalement,vers la droite ou vers la gauche.
+Cette balle rebondit sur tous les bords de la fenêtre de jeu à l'exception de celle du bas puisqu'en effet c'est à nous, joueurs, de la renvoyer grâce à la barre.
+Par ailleurs, la balle peut aussi rebondir sur les briques et ainsi les faire disparaître après un ou plusieurs contact entre la balle et la brique concernée.
+
 
 	1.3-Cahier des charges:
-Difficultées rencontrées : - BackGround (impossibilité de redimensionner l'image en fonction de la fenêtre)
-- Algorithme pour perdre.
+Fonctionnalités du projet : - Système de niveaux qui permettrait qu'à chaque fois que la partie est gagnée, de pouvoir la recommencer avec un niveau supérieur où les briques seraient positionnées différemment et où la difficulté serait accrue.
+- Système de vie qui permettrait à l'utilisateur d'avoir en sa possession trois chances. Il perd une vie lorsqu'il n'arrive pas à renvoyer la balle à l'aide de la barre et donc que la balle passerait au travers du bord bas de la fenêtre de jeu. Si le joueur perd ses trois vies, il perd la partie et doit recommencer le niveau.
+- Système afin de recommencer le niveau une fois que celui-ci est perdu ou gagné sans avoir à quitter complètement le jeu puis à le rouvrir. 
+- Système afin de pouvoir passer au niveau suivant qui apparaît si toutes les briques parvinrent à être cassées.  
+- (Pouvoir renvoyer la balle (etc...) => je ne sais pas si ça vaut le coup de le mettre)
 
+Contraintes rajoutées : - Système de pause permettant au joueur de souffler.
+- Système de menu 
+
+Difficultées rencontrées : - BackGround (impossibilité de redimensionner l'image en fonction de la fenêtre)
+- Algorithme pour perdre. (les difficultés rencontrés sont à mettre dans le 7.2 )
 
 II/ Organisation du projet :
 
