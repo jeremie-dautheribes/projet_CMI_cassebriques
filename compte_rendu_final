@@ -81,6 +81,7 @@ De plus, nous avions de meilleurs tutos qui sont en français pour nous aider da
 Outils d'analyse UML: Nous n'avons pas utilisé de UML. Nous avons fait ce choix car nous voulions avoir plus de liberté dans notre projet :
 Le dépassement de temps pour une tâche aurait été un stress. 
 De plus, lors de nos analyses, nous n'avions pas de grandes connaissances en développement donc lors de la redaction de l'UML il y aurait eu un décalage entre ce qui est à réaliser et le travail accompli.
+Le besoin d'UML se fait sur de plus gros projets, sur des projets comme le notre, nous pouvons nous restreindre à des croquis de tâches à effectuer.
 // Soit on fait un diagramme de Gant , soit on trouve une explication
 III/ Analyse du projet :
 Analyse préalable: Nous avons découper le projet en sous projet: On a découpé notre projet suivant l'avancée dans le jeu dans le temps.
