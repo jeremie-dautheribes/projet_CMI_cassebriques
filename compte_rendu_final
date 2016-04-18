@@ -70,6 +70,9 @@ De plus, nous sommes plus à l'aise avec Windows/Mac puisqe nous avons tous troi
 {Editeur:
 Compilateur: Sous code Blocks, le compilateur que nous avions était le GCC 4.9.2.
 Débogueur:} Code Blocks et Xcode car nous codions sous windows et mac et ces deux IDE était proche en terme de programmation. 
+CodeBlocks (tout comme Xcode) est un environnement de développement orienté C/C++ pratiquable sur beaucoup de systèmes (Unix, Windows, MACOS X).
+Ils ont beaucoup d'avantages: On a une sauvegarde, compilation (génération) et exécution avec une seule touche (F9). Nos erreurs de codage sont directement indiquées dans le code.
+Et on a une intégration complètes du débogueur. 
 {Gestionnaire de Versions:
 Gestionnaire de projet:} GitHub car il est très pratique pour synchroniser les codes. De plus, on peut mettre des extensions aux fichiers et on a un système d'historique.
 De plus, avec github, on peut directement modifier les fichiers donc chacun pouvait mettre ce qu'il faisait au fur et à mesure de l'avancement.
