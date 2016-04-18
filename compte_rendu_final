@@ -78,8 +78,10 @@ Gestionnaire de projet:} GitHub car il est très pratique pour synchroniser les 
 De plus, avec github, on peut directement modifier les fichiers donc chacun pouvait mettre ce qu'il faisait au fur et à mesure de l'avancement.
 Nous avons utilisé la SFML comme bibliothèque car elle semblait plus simple d'utilisation ( et on l'a trouvé intuitive car on retrouvait des mêmes principes pour différents code , ex: association Sprite/Texture et association Sound/SoundBuffer)
 De plus, nous avions de meilleurs tutos qui sont en français pour nous aider dans notre développement.
-Outils d'analyse UML: Nous n'avons pas utilisé de UML.
-
+Outils d'analyse UML: Nous n'avons pas utilisé de UML. Nous avons fait ce choix car nous voulions avoir plus de liberté dans notre projet :
+Le dépassement de temps pour une tâche aurait été un stress. 
+De plus, lors de nos analyses, nous n'avions pas de grandes connaissances en développement donc lors de la redaction de l'UML il y aurait eu un décalage entre ce qui est à réaliser et le travail accompli.
+// Soit on fait un diagramme de Gant , soit on trouve une explication
 III/ Analyse du projet :
 Analyse préalable: Nous avons découper le projet en sous projet: On a découpé notre projet suivant l'avancée dans le jeu dans le temps.
 Tâche n°1 : Briques 
