@@ -1,16 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <sstream>
-#include "balle.h"
-#include "briques.h"
-#include "fin.h"
-#include "gagner.h"
-#include "Menu.h"
-#include "pause.h"
-#include "Perdu.h"
-#include "raquette.h"
+#include "../includes/lvl.h"
+#include "../includes/balle.h"
+#include "../includes/briques.h"
+#include "../includes/fin.h"
+#include "../includes/gagner.h"
+#include "../includes/Menu.h"
+#include "../includes/pause.h"
+#include "../includes/Perdu.h"
+#include "../includes/raquette.h"
 
-template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaître la variable lives en jeu à côté de "Lives = "
+template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaï¿½tre la variable lives en jeu ï¿½ cï¿½tï¿½ de "Lives = "
     std::ostringstream stream;
     stream << n;
     return stream.str();
@@ -26,13 +27,13 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
     int scoreMax = 27;
     text.setString("Lives = " + number_to_string(lives));
 
-    sf::Texture Tbackground2; //On crée une texture "Tbackground"
-    sf::Sprite Sbackground2; //On crée un Sprite "background"
+    sf::Texture Tbackground2; //On crï¿½e une texture "Tbackground"
+    sf::Sprite Sbackground2; //On crï¿½e un Sprite "background"
     Tbackground2.loadFromFile("images\\pharaon.jpg"); // On charge l'image jungle dans la texture
     Sbackground2.setTexture(Tbackground2); //On affecte la texture au sprite
     Sbackground2.setColor(sf::Color(255,255,255,128)); //on lui met de la transparence
-    Sbackground2.scale(sf::Vector2f(0.43f,0.58f)); // on change sa taille pour l'adapter à la fenetre
-    Sbackground2.setOrigin(sf::Vector2f(10,10)); // on la déplace légèrement sur la gauche
+    Sbackground2.scale(sf::Vector2f(0.43f,0.58f)); // on change sa taille pour l'adapter ï¿½ la fenetre
+    Sbackground2.setOrigin(sf::Vector2f(10,10)); // on la dï¿½place lï¿½gï¿½rement sur la gauche
 
 
     while(window.isOpen() && niveau == 2){
@@ -91,7 +92,7 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
 
 
 
-        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::D))) // Si le bouton droite est appuyé du clavier , la raquette va à droite
+        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::D))) // Si le bouton droite est appuyï¿½ du clavier , la raquette va ï¿½ droite
         {
             rectangle.move(10,0);
             rectX += 10;
@@ -102,7 +103,7 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
             lives--;
         }
 
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncï¿½ , la raquette va ï¿½ gauche.
         {
             rectangle.move(-10,0);
             rectX -= 10;
@@ -118,7 +119,7 @@ template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire 
 
             if (event.type == sf::Event::Resized)
             {
-                // on met à jour la vue, avec la nouvelle taille de la fenêtre
+                // on met ï¿½ jour la vue, avec la nouvelle taille de la fenï¿½tre
                 sf::FloatRect visibleArea(-250, -50, event.size.width, event.size.height);
                 window.setView(sf::View(visibleArea));
 

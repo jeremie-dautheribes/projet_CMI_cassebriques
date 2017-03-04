@@ -2,56 +2,56 @@
 #include <SFML/Graphics/Text.hpp>
 #include <iostream>
 #include <string>
-#include "Perdu.h"
-#include "raquette.h"
-#include "briques.h"
+#include "../includes/Perdu.h"
+#include "../includes/raquette.h"
+#include "../includes/briques.h"
 #include <sstream>
 
-template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaître la variable lives en jeu à côté de "Lives = "
+template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaï¿½tre la variable lives en jeu ï¿½ cï¿½tï¿½ de "Lives = "
     std::ostringstream stream;
     stream << n;
     return stream.str();
 }
 
-void menuperdu (sf::RenderWindow &fenetre,sf::RenderWindow &window,int **brique,int &niveau){ // On crée une fonction "menuperdu" pour lancer une fenètre avec des boutons recommencer & quitter lorsque l'on a perdu
+void menuperdu (sf::RenderWindow &fenetre,sf::RenderWindow &window,int **brique,int &niveau){ // On crï¿½e une fonction "menuperdu" pour lancer une fenï¿½tre avec des boutons recommencer & quitter lorsque l'on a perdu
 
     sf::Font fontp; // on initialise un fond
     sf::Text textp; // on initialise un texte
-    fontp.loadFromFile("Fonts\\introheadr-base.otf"); //On charge le type d'écrire (ici écriture basique)
+    fontp.loadFromFile("Fonts\\introheadr-base.otf"); //On charge le type d'ï¿½crire (ici ï¿½criture basique)
     textp.setFont(fontp); //On affecte au texte , un fond
-    textp.setString("Vous avez perdu , voulez vous recommencer?"); // Le texte vaut "vous avez gagné" (ce qui sera affiché plus tard)
-    textp.setCharacterSize(30); // Change la taille de la police à 30
-    textp.setStyle(sf::Text::Regular); // Pas d'effet d'écriture : on a une police en "regular"
+    textp.setString("Vous avez perdu , voulez vous recommencer?"); // Le texte vaut "vous avez gagnï¿½" (ce qui sera affichï¿½ plus tard)
+    textp.setCharacterSize(30); // Change la taille de la police ï¿½ 30
+    textp.setStyle(sf::Text::Regular); // Pas d'effet d'ï¿½criture : on a une police en "regular"
 
     //Pour centrer le texte:
     sf::FloatRect textRectperdu = textp.getLocalBounds();
     textp.setOrigin(textRectperdu.width/2,textRectperdu.height/2);
     textp.setPosition(sf::Vector2f(500,100));
 
-    sf::Texture restart; // On crée une première texture pour notre bouton "recommencer"
-    sf::Texture leave; // on crée une seconde texture pour notre bouton "quitter"
-    sf::Sprite rejouer; // On crée notre premier sprite pour notre bouton "recommencer" que l'on associera à notre texture "restart"
-    sf::Sprite verlassen; // On crée notre second sprite pour notre bouton "quitter" que l'on associera à notre texture "leave"
+    sf::Texture restart; // On crï¿½e une premiï¿½re texture pour notre bouton "recommencer"
+    sf::Texture leave; // on crï¿½e une seconde texture pour notre bouton "quitter"
+    sf::Sprite rejouer; // On crï¿½e notre premier sprite pour notre bouton "recommencer" que l'on associera ï¿½ notre texture "restart"
+    sf::Sprite verlassen; // On crï¿½e notre second sprite pour notre bouton "quitter" que l'on associera ï¿½ notre texture "leave"
     restart.loadFromFile("images\\recommencer.jpg"); //Charge l'image "recommencer"
     leave.loadFromFile("images\\quitter.jpg"); //charge l'image "quitter"
-    rejouer.setTexture(restart); // On associe notre première texture nommée "restart" à notre premier sprite "rejouer"
-    verlassen.setTexture(leave);// On associe notre seconde texture nommée "leave" à notre second sprite "verlassen"
-    rejouer.setPosition(sf::Vector2f(240,200)); // On associe à notre bouton "rejouer" une position à 240 pixel sur notre axe X & à 100 sur notre axe Y
-    verlassen.setPosition(sf::Vector2f(300,400)); // On associe à notre bouton "quitter" une position à 300 pixel sur notre axe X & à 300 sur notre axe Y
+    rejouer.setTexture(restart); // On associe notre premiï¿½re texture nommï¿½e "restart" ï¿½ notre premier sprite "rejouer"
+    verlassen.setTexture(leave);// On associe notre seconde texture nommï¿½e "leave" ï¿½ notre second sprite "verlassen"
+    rejouer.setPosition(sf::Vector2f(240,200)); // On associe ï¿½ notre bouton "rejouer" une position ï¿½ 240 pixel sur notre axe X & ï¿½ 100 sur notre axe Y
+    verlassen.setPosition(sf::Vector2f(300,400)); // On associe ï¿½ notre bouton "quitter" une position ï¿½ 300 pixel sur notre axe X & ï¿½ 300 sur notre axe Y
     rejouer.move(sf::Vector2f(10,10));
     verlassen.move(sf::Vector2f(10,10));
 
-    sf::Event evenement; // On crée un evenement
-    fenetre.clear(sf::Color(103,154,198)); //affecte une couleur bleuté en fond de notre menu
+    sf::Event evenement; // On crï¿½e un evenement
+    fenetre.clear(sf::Color(103,154,198)); //affecte une couleur bleutï¿½ en fond de notre menu
     fenetre.draw(textp);
     fenetre.draw(rejouer); // On dessine notre sprite "rejouer" pour afficher notre bouton "recommencer"
     fenetre.draw(verlassen); // On dessine notre sprite "verlassen" pour afficher notre bouton "quitter"
     fenetre.display();
 
-    bool pourfinir = false; // On crée un booléen pour laisser notre fenetre de menu ouverte (tant qu'on n'a pas fait d'evenement)
+    bool pourfinir = false; // On crï¿½e un boolï¿½en pour laisser notre fenetre de menu ouverte (tant qu'on n'a pas fait d'evenement)
     while (! pourfinir) { // Boucle while pour laisser la fenetre ouverte
 
-        while (fenetre.pollEvent(evenement)) // Boucle while , qui prend en compte notre fenetre nommée winwin (appelée lors du main) & notre evenement
+        while (fenetre.pollEvent(evenement)) // Boucle while , qui prend en compte notre fenetre nommï¿½e winwin (appelï¿½e lors du main) & notre evenement
         {
 
             if (evenement.type == sf::Event::Closed) // Si on appuie sur la croix
@@ -59,17 +59,17 @@ void menuperdu (sf::RenderWindow &fenetre,sf::RenderWindow &window,int **brique,
                 return; //la page se ferme
             }
             if (evenement.type == sf::Event::MouseButtonPressed) { // Si on clique sur un bouton de notre souris.
-                float X=evenement.mouseButton.x; // On récupère les coordonnées de notre souris sur l'axe X
-                float Y=evenement.mouseButton.y; // On récupère les coordonnées de notre souris sur l'axe Y
+                float X=evenement.mouseButton.x; // On rï¿½cupï¿½re les coordonnï¿½es de notre souris sur l'axe X
+                float Y=evenement.mouseButton.y; // On rï¿½cupï¿½re les coordonnï¿½es de notre souris sur l'axe Y
 
 
-                if (evenement.mouseButton.button == sf::Mouse::Left && verlassen.getGlobalBounds().contains(X, Y)) { // Si on fait un clic gauche et que les coordonnées de notre souris coincident avec notre sprite "verlassen"
+                if (evenement.mouseButton.button == sf::Mouse::Left && verlassen.getGlobalBounds().contains(X, Y)) { // Si on fait un clic gauche et que les coordonnï¿½es de notre souris coincident avec notre sprite "verlassen"
 
                     window.close();
                     return; // La page se ferme et donc on quitte le jeu
 
                 }
-                if (evenement.mouseButton.button == sf::Mouse::Left && rejouer.getGlobalBounds().contains(X, Y)){ // Si on fait un clic gauche et que les coordonées de notre souris coincident avec notre sprite "rejour"
+                if (evenement.mouseButton.button == sf::Mouse::Left && rejouer.getGlobalBounds().contains(X, Y)){ // Si on fait un clic gauche et que les coordonï¿½es de notre souris coincident avec notre sprite "rejour"
 
                         if(niveau == 3)
                             initialisationBrique2(brique, 5, 16);
@@ -98,9 +98,9 @@ void perdu (sf::Event &event,sf::Sprite &Sbackground,sf::RenderWindow &window, s
     textg.setFont(font);
     text.setCharacterSize(24);
     text.setColor(sf::Color::Black);
-    textg.setCharacterSize(30); // Change la taille de la police à 30
+    textg.setCharacterSize(30); // Change la taille de la police ï¿½ 30
     textg.setStyle(sf::Text::Regular);
-    textg.setString("Appuyer sur G pour redémarrer !"); // Le texte vaut "vous avez gagné" (ce qui sera affiché plus tard
+    textg.setString("Appuyer sur G pour redï¿½marrer !"); // Le texte vaut "vous avez gagnï¿½" (ce qui sera affichï¿½ plus tard
     sf::FloatRect textRectperdu = textg.getLocalBounds();
     textg.setOrigin(textRectperdu.width/2,textRectperdu.height/2);
     textg.setPosition(sf::Vector2f(400,20));
@@ -139,5 +139,3 @@ void perdu (sf::Event &event,sf::Sprite &Sbackground,sf::RenderWindow &window, s
     }
 
 }
-
-

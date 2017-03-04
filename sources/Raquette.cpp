@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include "raquette.h"
+#include "../includes/raquette.h"
 
 
 void raquetteSouris (sf::Event &event, sf::RectangleShape &rectangle, float &rectX) { // mouvement de la raquette avec la souris

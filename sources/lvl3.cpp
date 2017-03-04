@@ -1,16 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <sstream>
-#include "balle.h"
-#include "briques.h"
-#include "fin.h"
-#include "gagner.h"
-#include "Menu.h"
-#include "pause.h"
-#include "Perdu.h"
-#include "raquette.h"
+#include "../includes/lvl.h"
+#include "../includes/balle.h"
+#include "../includes/briques.h"
+#include "../includes/fin.h"
+#include "../includes/gagner.h"
+#include "../includes/Menu.h"
+#include "../includes/pause.h"
+#include "../includes/Perdu.h"
+#include "../includes/raquette.h"
 
-template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaître la variable lives en jeu à côté de "Lives = "
+template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaï¿½tre la variable lives en jeu ï¿½ cï¿½tï¿½ de "Lives = "
     std::ostringstream stream;
     stream << n;
     return stream.str();
@@ -26,13 +27,13 @@ void lvl3(sf:: Text &text,sf::RenderWindow &window, sf::Texture &stop, sf::Sprit
     int scoreMax = 37;
     text.setString("Lives = " + number_to_string(lives));
 
-    sf::Texture Tbackground3; //On crée une texture "Tbackground"
-    sf::Sprite Sbackground3; //On crée un Sprite "background"
+    sf::Texture Tbackground3; //On crï¿½e une texture "Tbackground"
+    sf::Sprite Sbackground3; //On crï¿½e un Sprite "background"
     Tbackground3.loadFromFile("images\\neige.jpg"); // On charge l'image jungle dans la texture
     Sbackground3.setTexture(Tbackground3); //On affecte la texture au sprite
     Sbackground3.setColor(sf::Color(255,255,255,128)); //on lui met de la transparence
-    Sbackground3.scale(sf::Vector2f(0.43f,0.65f)); // on change sa taille pour l'adapter à la fenetre
-    Sbackground3.setOrigin(sf::Vector2f(12,15)); // on la déplace légèrement sur la gauche
+    Sbackground3.scale(sf::Vector2f(0.43f,0.65f)); // on change sa taille pour l'adapter ï¿½ la fenetre
+    Sbackground3.setOrigin(sf::Vector2f(12,15)); // on la dï¿½place lï¿½gï¿½rement sur la gauche
 
     initialisationBrique2(brique,5,16);
 
@@ -96,7 +97,7 @@ void lvl3(sf:: Text &text,sf::RenderWindow &window, sf::Texture &stop, sf::Sprit
 
 
 
-        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::D))) // Si le bouton droite est appuyé du clavier , la raquette va à droite
+        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::D))) // Si le bouton droite est appuyï¿½ du clavier , la raquette va ï¿½ droite
         {
             rectangle.move(10,0);
             rectX += 10;
@@ -107,7 +108,7 @@ void lvl3(sf:: Text &text,sf::RenderWindow &window, sf::Texture &stop, sf::Sprit
             lives--;
         }
 
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncé , la raquette va à gauche.
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))) // Si le bouton "gauche" du clavier est enfoncï¿½ , la raquette va ï¿½ gauche.
         {
             rectangle.move(-10,0);
             rectX -= 10;
@@ -123,7 +124,7 @@ void lvl3(sf:: Text &text,sf::RenderWindow &window, sf::Texture &stop, sf::Sprit
 
             if (event.type == sf::Event::Resized)
             {
-                // on met à jour la vue, avec la nouvelle taille de la fenêtre
+                // on met ï¿½ jour la vue, avec la nouvelle taille de la fenï¿½tre
                 sf::FloatRect visibleArea(-250, -50, event.size.width, event.size.height);
                 window.setView(sf::View(visibleArea));
 

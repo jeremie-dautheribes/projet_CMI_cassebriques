@@ -3,13 +3,14 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include "lvl.h"
-#include "Menu.h"
-#include "briques.h"
-#include "fin.h"
+#include "../includes/pause.h"
+#include "../includes/lvl.h"
+#include "../includes/Menu.h"
+#include "../includes/briques.h"
+#include "../includes/fin.h"
 
 
-template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaître la variable lives en jeu à côté de "Lives = "
+template<typename T> std::string number_to_string(const T& n) { //Pouvoir faire apparaï¿½tre la variable lives en jeu ï¿½ cï¿½tï¿½ de "Lives = "
     std::ostringstream stream;
     stream << n;
     return stream.str();
@@ -19,7 +20,7 @@ int main()
 {
     sf::SoundBuffer jungle;
     sf::Sound Sjungle;
-    jungle.loadFromFile("sons\\rythme.ogg");
+    jungle.loadFromFile("sons/rythme.ogg");
     Sjungle.setBuffer(jungle);
     Sjungle.play();
     Sjungle.setLoop(true);
@@ -31,16 +32,16 @@ int main()
     winwin.close();
     sf:: Font font;
     sf:: Text text;
-    font.loadFromFile("Fonts\\introrustg-base2line.otf");
+    font.loadFromFile("/home/kathleen/Kathy/projet_CMI_cassebriques/Fonts/introrustg-base2line.otf");
     text.setFont(font);
     text.setString("Lives = " + number_to_string(lives));
     text.setCharacterSize(24);
     text.setColor(sf::Color::Black);
 
     sf::Texture stop; // Texture de l'image
-    stop.loadFromFile("images\\Pause.jpg");
+    stop.loadFromFile("../images/Pause.jpg");
     sf::Sprite sprite;
-    sprite.setTexture(stop); // On associe la texture à un sprite
+    sprite.setTexture(stop); // On associe la texture ï¿½ un sprite
 
     bool pause = false;
     int niveau = 1;
@@ -51,8 +52,8 @@ int main()
     bord.setOutlineThickness(10);
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "CasseBriques"); //initialise la fenetre
-    sf::CircleShape circle(5.f); //Créer notre balle : un cercle de dimension 8
-    sf::RectangleShape rectangle; //créer notre raquette : un rectangle
+    sf::CircleShape circle(5.f); //Crï¿½er notre balle : un cercle de dimension 8
+    sf::RectangleShape rectangle; //crï¿½er notre raquette : un rectangle
     sf::RectangleShape Briques;
     rectangle.setSize(sf::Vector2f(115,15)); //Taille de notre raquette
     rectangle.setFillColor(sf::Color::Cyan); //Couleur de notre raquette

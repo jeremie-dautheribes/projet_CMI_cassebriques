@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include "Pause.h"
+#include "../includes/pause.h"
 
 void menuPause (sf::Texture &stop, sf::Sprite &sprite, sf::RenderWindow &window, bool &pause, sf::CircleShape &circle) {
 
@@ -13,7 +13,7 @@ void menuPause (sf::Texture &stop, sf::Sprite &sprite, sf::RenderWindow &window,
     while (window.isOpen() && pause){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         window.close();
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Si une fois la pause lancée,nous voulons redemarrer, bouton gauche souris
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){ //Si une fois la pause lancï¿½e,nous voulons redemarrer, bouton gauche souris
             pause = false;
             sf::sleep(sf::seconds(0.1f));
         }
